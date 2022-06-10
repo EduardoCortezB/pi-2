@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout');
+    return view('landingPage.index');
+});
+
+Route::get('/register-candidat', function () {
+    return view('candidats.register');
 });
