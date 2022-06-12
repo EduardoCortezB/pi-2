@@ -1806,3 +1806,24 @@ body {
     color: #fff;
     text-decoration: none;
   }
+
+  input:focus {
+    border-color: #111111 !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+  }
+
+  
+  input select {
+    font-size: 14px !important;
+    padding: 10px 15px !important;
+    font-family: inherit !important;
+    border-color: #756666 !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+  }
+
+  label{
+    padding-top: 5px;
+    padding-bottom: 0.2px !important;
+  }

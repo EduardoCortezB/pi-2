@@ -14,3 +14,4 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js/app.js')
     .js('resources/js/vendor/main-tmp.js', 'public/js/vendor/main-tmp.js')
     .styles('resources/css/vendor/main.css', 'public/css/vendor/main-tmp.css')
+    .version()
