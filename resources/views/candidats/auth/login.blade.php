@@ -11,9 +11,9 @@
 
       <ol>
         <li><a href="/">INICIO</a></li>
-        <li>REGISTRO DE CANDIDATO AL CELUT</li>
+        <li>INICIAR SESIÓN</li>
       </ol>
-      <h2>REGISTRO DE CANDIDATO AL CELUT</h2>
+      <h2>INICIAR SESIÓN</h2>
 
     </div>
   </section><!-- End Breadcrumbs -->
