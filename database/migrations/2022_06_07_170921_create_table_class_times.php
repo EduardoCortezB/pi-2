@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('table_class_times', function (Blueprint $table) {
             $table->id();
-            $table->stgring('start_time');
-            $table->stgring('end_time');
-            $table->stgring('start_date');
-            $table->stgring('end_date');
+            $table->string('start_time');
+            $table->string('end_time');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->boolean('isActive');
             $table->timestamps();
         });
