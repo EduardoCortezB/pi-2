@@ -22,6 +22,10 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            $table->unsignedBigInteger('id_rol');
+            $table->foreignId('id_rol')->references('id')->on('table_rols')->onDelete('no action');
+            
             $table->timestamps();
         });
     }

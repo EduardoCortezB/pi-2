@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('table_class_times', function (Blueprint $table) {
             $table->id();
+            $table->stgring('start_time');
+            $table->stgring('end_time');
+            $table->stgring('start_date');
+            $table->stgring('end_date');
+            $table->boolean('isActive');
             $table->timestamps();
         });
     }

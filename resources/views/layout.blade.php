@@ -43,7 +43,7 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
-      <h1 class="logo me-auto"><a href="/">CELUT<span></span></a></h1>
+      <h1 class="logo me-auto" style="font-size:25px"><a href="/">Centro de Lenguas de la UT<span></span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a>-->
 

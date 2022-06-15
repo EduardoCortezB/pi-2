@@ -1814,7 +1814,7 @@ body {
   }
 
   
-  input select {
+  input select option {
     font-size: 14px !important;
     padding: 10px 15px !important;
     font-family: inherit !important;

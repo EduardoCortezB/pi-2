@@ -122,3 +122,10 @@ isStudentCheckbo2.addEventListener("change", () =>{
   let slct = document.getElementById('form-select-careers')
   slct.style='display:none'
 })
+
+document.getElementById('registerAspirant').addEventListener('submit', (e) =>{
+  e.preventDefault();
+
+  console.log(e.target.querySelectorAll('input'));
+  console.log('ddd');
+})

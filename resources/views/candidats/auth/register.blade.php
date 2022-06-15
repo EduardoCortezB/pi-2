@@ -23,7 +23,7 @@
 <div class="container"> 
     <div class="row justify-content-center" id="register_aspirant_celut_step1" style="display:none;">
       <div class="col-6 p-4">
-        <form class="g-3 needs-validation php-email-form" novalidate>
+        <form class="g-3 needs-validation php-email-form" id="registerAspirant" novalidate>
           <div class="row">
             <div class="col-md-6">
               <label for="validationCustom01">Nombre</label>
@@ -75,13 +75,13 @@
           <div class="col-md-6">
             <label for="validationCustom01">Eres estudiante de la UTT</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
               <label class="form-check-label" for="flexRadioDefault1">
                 No
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
               <label class="form-check-label" for="flexRadioDefault2">
                 Si
               </label>
@@ -100,7 +100,16 @@
             </select>
           </div>
           <div class="col-md-12">
-            <label for="levelEng">Nivel de Inglés</label>
+            <label for="levelEng">Selecciona el Idioma que quieres cursar:</label>
+            <select class="form-select" id="levelEng">
+              <option selected hidden disabled>Slecciona las opciones</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-md-12">
+            <label for="levelEng">Nivel</label>
             <select class="form-select" id="levelEng">
               <option selected>Selecciona la carrera.</option>
               <option value="1">One</option>
@@ -109,12 +118,14 @@
             </select>
             <div id="validationCustom03" class="form-text">Si no sabes tu nivel de Inglés, realiza un examen en la siguiente url <a href="">nnjds</a>.</div>
           </div>
-          <div class="col-md-6">
-            <label for="validationCustom05">Numero/Telefono</label>
-            <input type="text" class="form-control" id="validationCustom05" placeholder="Numero" min="10" max="10" required>
-            <div class="invalid-feedback">
-              Se requiere un numero de telefono valido
-            </div>
+          <div class="col-md-12">
+            <label for="levelEng">Selecciona un horario:</label>
+            <select class="form-select" id="levelEng">
+              <option selected hidden disabled>Slecciona las opciones</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
           </div>
           <div class="d-grid gap-2 pt-4">
             <button class="btn btn-primary" type="submit">Inscribirse</button>
