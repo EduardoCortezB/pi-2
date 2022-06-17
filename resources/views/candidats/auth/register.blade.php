@@ -39,6 +39,7 @@
                 Información Invalida
               </div>
             </div>
+            
             <div class="col-md-12">
               <label for="validationCustom03">Correo</label>
               <input type="email" class="form-control" id="validationCustom03" placeholder="Correo" required>

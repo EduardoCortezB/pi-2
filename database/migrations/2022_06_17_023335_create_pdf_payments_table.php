@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_payments', function (Blueprint $table) {
+        Schema::create('pdf_payments', function (Blueprint $table) {
             $table->id();
-            // $table->string('path_pdf')->unique();
-
-            $table->boolean('is_valid')->default(false);
-
-            // user to payments
-            $table->foreignId('id_user')->references('id')->on('users')->onDelete('no action')->onUpdate('no action');
-
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_payments');
+        Schema::dropIfExists('pdf_payments');
     }
 };
