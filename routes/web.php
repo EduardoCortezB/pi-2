@@ -18,9 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/register-candidat', function () {
-    return view('candidats.auth.register');
+    return view('preinscription.register');
 });
 
 Route::get('/login', function () {
-    return view('candidats.auth.login');
+    return view('auth.login');
 });
