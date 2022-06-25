@@ -10,4 +10,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
   <script src="{{ asset('js/vendor/main-tmp.js'); }}"></script>

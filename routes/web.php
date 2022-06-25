@@ -1,6 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterAspirantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +17,8 @@ Route::get('/', function () {
     return view('landingPage.index');
 });
 
-Route::get('/register-candidat', function () {
-    return view('preinscription.register');
-});
+Route::get('/register-candidate', [RegisterAspirantController::class, 'index'])->name('register-candidate');
+Route::post('/register-candidate', [RegisterAspirantController::class, 'store']);
 
 Route::get('/login', function () {
     return view('auth.login');
