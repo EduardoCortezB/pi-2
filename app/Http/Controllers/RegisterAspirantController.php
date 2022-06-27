@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Session\SessionManager;
 
 class RegisterAspirantController extends Controller
 {
@@ -14,7 +15,6 @@ class RegisterAspirantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        return view('preinscription.register');
     }
 
 
@@ -26,6 +26,7 @@ class RegisterAspirantController extends Controller
     public function create()
     {
         //
+        return view('preinscription.register');
     }
 
     /**
@@ -34,7 +35,7 @@ class RegisterAspirantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
+    public function store(Request $request, SessionManager $sessionManage){
         $this->validate($request, [
             'name' => 'required|min:2|max:25',
             'apellidos' => 'required|min:2|max:30',
@@ -52,51 +53,7 @@ class RegisterAspirantController extends Controller
             'password' => Hash::make($request->get('password')),
         ]);
 
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $sessionManage->flash('message', 'Se ha creado tu cuenta exitosamente. Inicia sesión para proceder con la inscripción.');
+        return redirect('/login');
     }
 }

@@ -16,8 +16,6 @@
     <h2>REGISTRO DE ASPIRANTE</h2>
 </div>
 </section>
-
-<div id="contRegister"></div>
 <section class="inner-page">
     <div class="container" data-aos="fade-up">
     <div class="row">

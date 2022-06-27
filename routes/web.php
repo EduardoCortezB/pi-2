@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('landingPage.index');
 });
 
-Route::get('/register-candidate', [RegisterAspirantController::class, 'index'])->name('register-candidate');
+Route::get('/register-candidate', [RegisterAspirantController::class, 'create'])->name('register-candidate');
 Route::post('/register-candidate', [RegisterAspirantController::class, 'store']);
 
 Route::get('/login', function () {
