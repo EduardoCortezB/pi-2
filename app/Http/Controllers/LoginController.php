@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Session\SessionManager;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -12,17 +13,27 @@ class LoginController extends Controller
     }
 
     public function store(Request $request, SessionManager $sessionManager){
-        $this->validate($request,[
-            'email'     => 'required|email|max:60',
-            'password' => 'required|min:4'
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
         ]);
 
-        // return true if is correct the values
-        if (!auth()->attempt($request->only('email', 'password'))) {
-            $sessionManager->flash('message-error', 'Credenciales Incorrectas');
-            return back();
-        }
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
-        return redirect('panel-a');
+            return redirect('/');
+        }
+        $sessionManager->flash('message-error', 'Credenciales Incorrectas');
+        return back();
+    }
+
+    public function logOut(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

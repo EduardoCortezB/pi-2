@@ -7,28 +7,24 @@
         <ul>
           <li><a class="nav-link scrollto" href="/">Inicio</a></li>
           <li><a class="nav-link scrollto" href="#about">Acerca de</a></li>
-          {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          @if (auth()->user())
+          <li class="dropdown"><a href="#"><span>Opciones</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">{{Auth::user()->email}}</a></li><hr>
+              <li><a href="/panel">Panel</a></li>
+              <li><a href="/log-out">Cerrar Sesión</a></li>
             </ul>
-          </li> --}}
-          <li><a class="nav-link scrollto" href="/login#IniciarSesión">Iniciar Sesión</a></li>
+          </li>
+          @endif
+
+          @if (!auth()->user())
+            <li><a class="nav-link scrollto" href="/login">Iniciar Sesión</a></li>
+          @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
-      <a href="{{route('register-candidate')}}" class="get-started-btn scrollto">Preinscribirse</a>
+      @if (!auth()->user())
+        <a href="{{route('register-candidate')}}" class="get-started-btn scrollto">Preinscribirse</a>
+      @endif
     </div>
   </header><!-- End Header -->

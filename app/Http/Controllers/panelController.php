@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AdminPanelController extends Controller
+class panelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class AdminPanelController extends Controller
      */
     public function index()
     {
-        //
+        dd(Auth::user());
+        return view('panel.content.index');
     }
 
     /**

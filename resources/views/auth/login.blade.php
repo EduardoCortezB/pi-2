@@ -48,7 +48,7 @@ toastr.options = {
 <!--A-->
 @if(Session::has('message'))
     <script type="text/javascript">
-        toastr["success"]("{{Session::get(['data'])}}")
+        toastr["success"]("{{Session::get('message')}}")
     </script>
 @endif
 @if(Session::has('message-error'))
