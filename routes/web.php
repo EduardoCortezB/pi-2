@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterAspirantController;
 
@@ -20,6 +22,5 @@ Route::get('/', function () {
 Route::get('/register-candidate', [RegisterAspirantController::class, 'create'])->name('register-candidate');
 Route::post('/register-candidate', [RegisterAspirantController::class, 'store']);
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class,'store']);
