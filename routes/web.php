@@ -19,6 +19,9 @@ use App\Http\Controllers\RegisterAspirantController;
 Route::get('/', function () {
     return view('landingPage.index');
 });
+Route::get('/aboutus', function () {
+    return view('landingPage.aboutus');
+});
 Route::group(['middleware'=>'auth.isAuth'], function(){
     Route::get('/register-candidate', [RegisterAspirantController::class, 'create'])->name('register-candidate');
     Route::post('/register-candidate', [RegisterAspirantController::class, 'store']);

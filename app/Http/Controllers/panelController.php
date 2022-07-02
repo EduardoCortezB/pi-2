@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class panelController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth.redIfNoAuth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,9 @@ class panelController extends Controller
      */
     public function index()
     {
-        dd(Auth::user());
+        if(Auth::user()->id_rol=='1'){
+            return view('panel.content-admin.index');
+        }
         return view('panel.content.index');
     }
 

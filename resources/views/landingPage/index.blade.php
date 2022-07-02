@@ -23,41 +23,22 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row no-gutters">
-          <div class="content col-xl-12 d-flex align-items-stretch">
+          <div class="content col-xl-6 d-flex align-items-stretch">
             <div class="content">
-              <h3>Centro de Lenguas Ut</h3>
+              <h3>Centro de Lenguas UT</h3>
               <p>
-                Somos un centro de lenguas de la Ut el cual busca ofrecerle a nuestros alumnos la posibilidad de aprender un nuevo lenguaje con cursos impartidos por los mejores docentes.
+                El Centro de Lenguas de la Universidad Tecnológica, tiene como objetivo general:
               </p>
-              <a href="#" class="about-btn"><span>Acerca de nosotros</span> <i class="bx bx-chevron-right"></i></a>
+              <a href="/aboutus" class="about-btn"><span>Acerca de nosotros</span> <i class="bx bx-chevron-right"></i></a>
             </div>
           </div>
-          {{-- <div class="col-xl-7 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                  <i class="bx bx-receipt"></i>
-                  <h4>Corporis voluptates sit</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                  <i class="bx bx-cube-alt"></i>
-                  <h4>Ullamco laboris nisi</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                  <i class="bx bx-images"></i>
-                  <h4>Labore consequatur</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-                  <i class="bx bx-shield"></i>
-                  <h4>Beatae veritatis</h4>
-                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-                </div>
-              </div>
-            </div><!-- End .content-->
-          </div> --}}
+          <div class="content col-xl-6 d-flex align-items-stretch">
+            <div class="content">
+                <i style="font-size: 40px" class="bx bx-receipt"></i>
+                <h4>Objetivo General</h4>
+                <p>Brindar soporte académico principalmente la lengua Inglesa tanto a profesores y estudiantes como a personal administrativo, para contribuir al logro de metas y objetivos.</p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -67,29 +48,35 @@
     <section id="tabs" class="tabs">
       <div class="container" data-aos="fade-up">
 
-        <ul class="nav nav-tabs row d-flex">
+        <div class="section-title">
+            <h2>Niveles</h2>
+            <p>Conoce los niveles y su descripción.</p>
+          </div>
+
+        <ul class="nav nav-tabs row d-flex justify-content-md-center">
           <li class="nav-item col-3">
             <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
-              <i class="ri-gps-line"></i>
-              <h4 class="d-none d-lg-block">Modi sit est dela pireda nest</h4>
+              <h4 class="d-none d-lg-block">NIVELES A1 Y A2</h4>
             </a>
           </li>
           <li class="nav-item col-3">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
-              <i class="ri-body-scan-line"></i>
-              <h4 class="d-none d-lg-block">Unde praesenti mara setra le</h4>
+              <h4 class="d-none d-lg-block">NIVEL B1</h4>
             </a>
           </li>
           <li class="nav-item col-3">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
-              <i class="ri-sun-line"></i>
-              <h4 class="d-none d-lg-block">Pariatur explica nitro dela</h4>
+              <h4 class="d-none d-lg-block">NIVEL B2</h4>
             </a>
           </li>
           <li class="nav-item col-3">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
-              <i class="ri-store-line"></i>
-              <h4 class="d-none d-lg-block">Nostrum qui dile node</h4>
+              <h4 class="d-none d-lg-block">NIVEL C1</h4>
+            </a>
+          </li>
+          <li class="nav-item col-3 mt-3">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5">
+              <h4 class="d-none d-lg-block">NIVEL C2</h4>
             </a>
           </li>
         </ul>
@@ -98,97 +85,62 @@
           <div class="tab-pane active show" id="tab-1">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
-                <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-                <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
-                </p>
-                <ul>
-                  <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                  <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-                </ul>
+                <h3>Niveles A1 y A2. Esencial.</h3>
                 <p>
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                  culpa qui officia deserunt mollit anim id est laborum
+                    <b>A1 Esencial: </b>
+                    Desarrollar las bases de las habilidades de leer, escribir, entender y
+                    hablar.
                 </p>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src="assets/img/tabs-1.jpg" alt="" class="img-fluid">
+                <p>
+                    <b>A2 Básico: </b>
+                    Poder expresarte en Inglés en forma básica y simple; además de
+                    seguir aprendiendo.
+                </p>
               </div>
             </div>
           </div>
           <div class="tab-pane" id="tab-2">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Neque exercitationem debitis soluta quos debitis quo mollitia officia est</h3>
+                <h3>Nivel B1, intermedio.</h3>
                 <p>
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                  culpa qui officia deserunt mollit anim id est laborum
+                    Poder expresarte con soltura y fluidez en Inglés.
                 </p>
-                <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
-                </p>
-                <ul>
-                  <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                  <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</li>
-                  <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{{asset('img/tabs-2.jpg')}}" alt="" class="img-fluid">
               </div>
             </div>
           </div>
           <div class="tab-pane" id="tab-3">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Voluptatibus commodi ut accusamus ea repudiandae ut autem dolor ut assumenda</h3>
+                <h3>Avanzado Nivel B2.</h3>
                 <p>
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                  culpa qui officia deserunt mollit anim id est laborum
+                    Adquirir vocabulario y estructuras gramaticales complejas que
+                    permitirán desenvolverte en cualquier conversación en Inglés.
                 </p>
-                <ul>
-                  <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                  <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</li>
-                </ul>
-                <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
-                </p>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/tabs-3.jpg" alt="" class="img-fluid">
               </div>
             </div>
           </div>
           <div class="tab-pane" id="tab-4">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Omnis fugiat ea explicabo sunt dolorum asperiores sequi inventore rerum</h3>
+                <h3>Profesional C1</h3>
                 <p>
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                  culpa qui officia deserunt mollit anim id est laborum
+                    Hablar y refutar en una conversación compleja en Inglés, además de
+                    producir cualquier tipo de texto e información en Inglés. Acreditar
+                    certificaciones como TOEFL,ITP,TOEIC.
                 </p>
-                <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
-                </p>
-                <ul>
-                  <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                  <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-                </ul>
               </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{{asset('img/tabs-4.jpg')}}" alt="" class="img-fluid">
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-5">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                <h3>Nivel C2 Maestria.</h3>
+                <p>
+                    Hablar y refutar en una conversación compleja en Inglés, además de
+                    producir cualquier tipo de texto e información en Inglés. Acreditar
+                    certificaciones como TOEFL, ITP, TOEIC.
+                </p>
               </div>
             </div>
           </div>
@@ -230,59 +182,90 @@
         <ul class="faq-list accordion" data-aos="fade-up">
 
           <li>
-            <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-              </p>
-            </div>
+            <a data-bs-toggle="collapse" class="" data-bs-target="#faq1" aria-expanded="true">¿Cuáles son los costos? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <div id="faq1" class="collapse show" data-bs-parent=".faq-list" style="">
+                <div>
+                    <p><b>Costos</b></p>
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <p>• Colegiatura $1,800 para estudiantes de la <b>UTTN</b>.</p>
+                            </tr>
+                            <tr>
+                                <p>• Colegiatura $2,400 para externos.</p>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>La duración del curso son 10 Semanas, 60 Horas.</p>
+                </div>
+              </div>
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq2" class="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq2" class="collapsed">¿Cuál es la duración del curso? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq2" class="collapse" data-bs-parent=".faq-list">
               <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                La duración del curso es de 10 Semanas 60 horas.
               </p>
             </div>
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq3" class="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq3" class="collapsed">¿Cuáles son los beneficios del CELUT? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq3" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-              </p>
+                <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <p>• NO COBRAMOS INSCRIPCIÓN</p>
+                        </tr>
+                        <tr>
+                            <p>• ÙNICO PAGO POR 4 MESES</p>
+                        </tr>
+                        <tr>
+                            <p>• EL PRECIO MÀS ECONÒMICO EN LA REGIÓN</p>
+                        </tr>
+                        <tr>
+                            <p>• OBTENIENDO EL NIVEL B1 APLICAN PARA CONVOCATORIAS INTERNACIONALES:
+                                FRANCIA,CANADA,ESTADOS UNIDOS</p>
+                        </tr>
+                        <tr>
+                            <p>                • UBICACIÓN DE LA OFICINA DEL CENTRO DEL LENGUAS UT ESTA DENTRO DEL
+                                CAMPUS(CARRERA DE MANTENIMIENTO)</p>
+                        </tr>
+                        <tr>
+                            <p>                • HORARIOS FLEXIBLES</p>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq4" class="collapsed">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq4" class="collapsed">Opciones de becas a Canadá <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq4" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-              </p>
+                <table class="table table-sm">
+                    <tbody>
+                        <tr>
+                            <p>1. BECA ELAP- El recurso económico es canadiense. Tienes que pagar
+                                todo y llegando a Canadá se te reembolsan. Inversión aproximadamente. $40k pesos.
+                                Se abren plazas febrero de cada año. A partir de 5to cuatrimestree
+                                Ingeniería. Para personas que hablan Inglés o Francés. Debes pagar tu
+                                certificación de idioma.</p>
+                        </tr>
+                        <tr>
+                            <p>2. BECA MOVILIDAD INTERNACIONAL CANADA BIS - El recurso
+                                económico es de gobierno mexicano. Solo para alumnos de TSU de
+                                BIS .Debes pagar tu ITEP Plus con B1 mínimo.Promedio de 9.</p>
+                        </tr>
+                        <tr>
+                            <p>3. BECA MOVILIDAD INTERNACIONAL QUEBEC-El recurso económico
+                                es de gobierno mexicano.Solo para alumnos de TSU que no
+                                quedaron en MEXPROTEC.Promedio de 9.</p>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
           </li>
-
-          <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-              </p>
-            </div>
-          </li>
-
         </ul>
 
       </div>

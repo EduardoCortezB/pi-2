@@ -407,8 +407,9 @@ body {
   }
 
   .section-bg {
-    padding: 120px 0;
+    padding-bottom: 75px;
     color: #fff;
+    padding-top: 15px;
   }
   .section-bg:before {
     content: "";

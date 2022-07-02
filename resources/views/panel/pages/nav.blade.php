@@ -50,20 +50,113 @@
       </div>
 
       <!-- Sidebar Menu -->
+      @if (Auth::user()->id_rol == 1)
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+                <i class="nav-icon fa-solid fa-user"></i>
               <p>
-                Simple Link
+                Agregar preinscritos
               </p>
             </a>
-
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-user-check"></i>
+              <p>
+               Usuarios registrados
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-user-plus"></i>
+              <p>
+                Agregar preinscritos
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa-solid fa-align-justify"></i>
+              <p>
+                Niveles Idioma
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-business-time"></i>
+              <p>
+                Horarios de clases
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-school"></i>
+              <p>
+                Carreras UTT
+              </p>
+            </a>
           </li>
         </ul>
       </nav>
+      @endif
+      @if (Auth::user()->id_rol == 2)
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    Cursando
+                  </p>
+                </a>
+              </li>
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Iniciar preinscripción
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Preinscripciones pendientes
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Perfil
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      @endif
       <!-- /.sidebar-menu -->
+      <div class="mt-3 mb-3 d-flex" style="border-bottom: 1px solid #4f5962;border-top: 1px solid #4f5962;">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="/log-out" class="nav-link">
+                      <i class="nav-icon fa-solid fa-arrow-right-from-bracket"></i>
+                      <p>
+                        Cerrar sesión
+                      </p>
+                    </a>
+                </li>
+            </ul>
+          </nav>
+      </div>
     </div>
     <!-- /.sidebar -->
   </aside>
