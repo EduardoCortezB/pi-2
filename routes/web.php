@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\levelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -36,4 +37,5 @@ Route::group(['middleware'=>'auth.redIfNoAuth'],function(){
     Route::get('/log-out', [LoginController::class, 'logOut']);
     Route::resource('/panel', panelController::class);
     Route::resource('/user', UserController::class);
+    Route::resource('/level', levelController::class);
 });

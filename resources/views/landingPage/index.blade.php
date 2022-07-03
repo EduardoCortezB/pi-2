@@ -11,7 +11,11 @@
         <div class="col-xl-6">
           <h1>Centro de Lenguas Ut</h1>
           <h2>Preinscribete ahora y disfruta el aprendizaje de un nuevo Idioma.</h2>
-          <a href="{{route('register-candidate')}}" class="btn-get-started scrollto">Preinscribete aquí</a>
+          @if (Auth::check())
+
+          @else
+            <a href="{{route('register-candidate')}}" class="btn-get-started scrollto">Registrate Aquí</a>
+          @endif
         </div>
       </div>
     </div>

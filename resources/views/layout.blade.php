@@ -12,7 +12,6 @@
 
   <!-- Favicons -->
   <link href="{{ asset('img/favicon.png') }}" rel="icon">
-
     @include('landingPage.styles')
     @yield('styles')
 

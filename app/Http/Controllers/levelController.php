@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Level;
 use Illuminate\Http\Request;
+use Illuminate\Session\SessionManager;
 
 class levelController extends Controller
 {
@@ -14,6 +16,8 @@ class levelController extends Controller
     public function index()
     {
         //
+        $levels=Level::paginate(5);
+        return view('panel.content-admin.level.index', compact('levels'));
     }
 
     /**
@@ -23,7 +27,7 @@ class levelController extends Controller
      */
     public function create()
     {
-        //
+        return view('panel.content-admin.level.add');
     }
 
     /**
@@ -32,9 +36,16 @@ class levelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, SessionManager $sessionManage)
     {
-        //
+        $this->validate($request,[
+            'name_level'     => 'required'
+        ]);
+
+        Level::create($request->all());
+
+        $sessionManage->flash('message', 'Se creado el nuevo nivel exitosamente.');
+        return redirect()->route('level.index');
     }
 
     /**
@@ -57,6 +68,8 @@ class levelController extends Controller
     public function edit($id)
     {
         //
+        $level=Level::find($id);
+        return view('panel.content-admin.level.edit', compact('level'));
     }
 
     /**
@@ -66,9 +79,17 @@ class levelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, SessionManager $sessionManage)
     {
         //
+        $this->validate($request, [
+            'name_level' => 'required'
+        ]);
+        $level=Level::find($id);
+        $level->update($request->all());
+
+        $sessionManage->flash('message', 'Se editó el nivel exitosamente.');
+        return redirect()->route('level.index');
     }
 
     /**
@@ -80,5 +101,7 @@ class levelController extends Controller
     public function destroy($id)
     {
         //
+        Level::find($id)->delete();
+        return redirect()->route('level.index');
     }
 }

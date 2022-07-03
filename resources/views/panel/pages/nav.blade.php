@@ -53,21 +53,24 @@
       <!-- Sidebar Menu -->
       @if (Auth::user()->id_rol == 1)
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fa-solid fa-user"></i>
-              <p>
-                Agregar preinscritos
-              </p>
-            </a>
-          </li>
+        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#users" role="button" aria-expanded="false" aria-controls="users">
+                    <i class="nav-icon fa-solid fa-user"></i>
+                  <p>
+                    Usuarios
+                  </p>
+                  <i class="right fa-solid fa-caret-down"></i>
+                </a>
+              </li>
+        </ul> <!-- End users -->
+        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu" id="users"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu users -->
           <li class="nav-item">
             <a href="/user" class="nav-link">
                 <i class="nav-icon fa-solid fa-user-check"></i>
-              <p>
-               Usuarios registrados
-              </p>
+                <p>
+                    Usuarios registrados
+                </p>
             </a>
           </li>
           <li class="nav-item">
@@ -78,31 +81,45 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa-solid fa-align-justify"></i>
-              <p>
-                Niveles Idioma
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fa-solid fa-business-time"></i>
-              <p>
-                Horarios de clases
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fa-solid fa-school"></i>
-              <p>
-                Carreras UTT
-              </p>
-            </a>
-          </li>
-        </ul>
+        </ul> <!-- end submenu users -->
+
+        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- celut uttn -->
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#celut_uttn" role="button" aria-expanded="false" aria-controls="celut_uttn">
+                    <i class="nav-icon fa-solid fa-building-columns"></i>
+                  <p>
+                    Celut Uttn
+                  </p>
+                  <i class="right fa-solid fa-caret-down"></i>
+                </a>
+              </li>
+        </ul> <!-- End celut uttn -->
+        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu" id="celut_uttn"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu celut uttn -->
+            <li class="nav-item">
+              <a href="/level" class="nav-link">
+                <i class="nav-icon fa-solid fa-align-justify"></i>
+                <p>
+                  Niveles Idioma
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="nav-icon fa-solid fa-business-time"></i>
+                <p>
+                  Horarios de clases
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="nav-icon fa-solid fa-school"></i>
+                <p>
+                  Carreras UTT
+                </p>
+              </a>
+            </li>
+          </ul> <!-- end submenu celut uttn -->
       </nav>
       @endif
       @if (Auth::user()->id_rol == 2)
