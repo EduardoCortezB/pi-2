@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rol;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Session\SessionManager;
 
 class UserController extends Controller
 {
@@ -13,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users=User::paginate(15);
+        return view('panel.content-admin.user.index', compact('users'));
     }
 
     /**
@@ -24,6 +28,8 @@ class UserController extends Controller
     public function create()
     {
         //
+        $roles=Rol::all(['id','name_role']);
+        return view('panel.content-admin.user.add',compact('roles'));
     }
 
     /**
@@ -32,9 +38,22 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,SessionManager $sessionManage)
     {
-        //
+        $this->validate($request,[
+            'name'  => 'required',
+            'lastName'  => 'required',
+            'email'  => 'required|email|unique:users',
+            'phoneNumber'  => 'required',
+            'password'  => 'required|confirmed',
+            'id_rol'  => 'required',
+        ]);
+
+        User::create($request->all());
+
+        $sessionManage->flash('message', 'Se creado la cuenta exitosamente.');
+        return redirect()->route('user.index');
+
     }
 
     /**
@@ -57,6 +76,9 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $user=User::find($id);
+        $roles=Rol::all();
+        return view('panel.content-admin.user.edit', compact('user', 'roles'));
     }
 
     /**
@@ -66,9 +88,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'lastName' => 'required',
+            'email' => 'required',
+            'phoneNumber' => 'required|min:10|numeric',
+            'id_rol' => 'required'
+        ]);
+        $user=User::find($id);
+        $user->update($request->all());
+
+        return redirect()->route('user.index');
+
     }
 
     /**
@@ -80,5 +113,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        User::find($id)->delete();
+        return redirect()->route('user.index');
     }
 }

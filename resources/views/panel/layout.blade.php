@@ -10,6 +10,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>Celut | Panel</title>
 
   @include('panel.pages.head')
+  @yield('styles')
+
+
+  @include('panel.pages.scripts')
+  @yield('scripts')
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -23,7 +28,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 @include('panel.pages.footer')
 <!-- REQUIRED SCRIPTS -->
 
-@include('panel.pages.scripts')
 
 </body>
 </html>

@@ -46,6 +46,7 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">{{Auth::user()->email}}</a>
+          <a href="#" class="d-block">{{Auth::user()->rol->name_role}}</a>
         </div>
       </div>
 
@@ -62,7 +63,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/user" class="nav-link">
                 <i class="nav-icon fa-solid fa-user-check"></i>
               <p>
                Usuarios registrados
@@ -70,10 +71,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('user.create')}}" class="nav-link">
                 <i class="nav-icon fa-solid fa-user-plus"></i>
               <p>
-                Agregar preinscritos
+                Agregar preinscrito
               </p>
             </a>
           </li>
