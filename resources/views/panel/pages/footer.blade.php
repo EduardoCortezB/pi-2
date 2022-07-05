@@ -5,7 +5,7 @@
 
     </div>
     <!-- Default to the left -->
-    <strong>Centro de Lenguas Celut</strong>.
+    <strong>Centro de Lenguas UT</strong>.
   </footer>
 </div>
 <!-- ./wrapper -->

@@ -10,9 +10,10 @@
       <div class="row">
         <div class="col-xl-6">
           <h1>Centro de Lenguas Ut</h1>
-          <h2>Preinscribete ahora y disfruta el aprendizaje de un nuevo Idioma.</h2>
+          <h2>Registrate ahora y disfruta el aprendizaje de un nuevo Idioma.</h2>
           @if (Auth::check())
 
+          {{-- <a href="{{route('candidate.create')}}" class="btn-get-started scrollto">Preinscribete Aquí</a> --}}
           @else
             <a href="{{route('register-candidate')}}" class="btn-get-started scrollto">Registrate Aquí</a>
           @endif

@@ -1,4 +1,5 @@
   <!-- Navbar -->
+  {{-- #1b1b1b --}}
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -32,9 +33,11 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/" class="brand-link">
-      {{-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
-      <span class="brand-text font-weight-light row justify-content-center">CELUT</span>
+    <a href="/" class="brand-link text-center">
+        <div id="img-rend">
+            <img src="{{asset('img/logo-01.png')}}" alt="Celut Logo" id="img-Nav" width="150px">
+        </div>
+      {{-- <span class="brand-text font-weight-light row justify-content-center">CELUT</span> --}}
     </a>
 
     <!-- Sidebar -->
@@ -45,14 +48,24 @@
           {{-- <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> --}}
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->email}}</a>
-          <a href="#" class="d-block">{{Auth::user()->rol->name_role}}</a>
+          <p class="d-block">{{Auth::user()->name}}</p>
+          <p class="d-block"><b>Función </b>{{Auth::user()->rol->name_role}}</p>
         </div>
       </div>
 
       <!-- Sidebar Menu -->
       @if (Auth::user()->id_rol == 1)
-      <nav class="mt-2">
+      <nav class="">
+        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
+            <li class="nav-item">
+                <a class="nav-link" href="/">
+                    <i class="nav-icon fa-solid fa-house"></i>
+                  <p>
+                    Página principal
+                  </p>
+                </a>
+              </li>
+        </ul> <!-- End users -->
         <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#users" role="button" aria-expanded="false" aria-controls="users">
@@ -64,7 +77,7 @@
                 </a>
               </li>
         </ul> <!-- End users -->
-        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu" id="users"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu users -->
+        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="users"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu users -->
           <li class="nav-item">
             <a href="/user" class="nav-link">
                 <i class="nav-icon fa-solid fa-user-check"></i>
@@ -94,7 +107,7 @@
                 </a>
               </li>
         </ul> <!-- End celut uttn -->
-        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu" id="celut_uttn"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu celut uttn -->
+        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="celut_uttn"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu celut uttn -->
             <li class="nav-item">
               <a href="/level" class="nav-link">
                 <i class="nav-icon fa-solid fa-align-justify"></i>
@@ -104,7 +117,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{{ route('class_time.index') }}" class="nav-link">
                   <i class="nav-icon fa-solid fa-business-time"></i>
                 <p>
                   Horarios de clases
@@ -161,7 +174,7 @@
       </nav>
       @endif
       <!-- /.sidebar-menu -->
-      <div class="mt-3 mb-3 d-flex" style="border-bottom: 1px solid #4f5962;border-top: 1px solid #4f5962;">
+      <div class="mt-3 mb-3 d-flex" style="border-bottom: 1px solid #e4dedeb6;border-top: 1px solid #e4dedeb6;">
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">

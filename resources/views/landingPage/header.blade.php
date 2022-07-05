@@ -25,7 +25,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
       @if (!auth()->user())
-        <a href="{{route('register-candidate')}}" class="get-started-btn scrollto">Preinscribirse</a>
+        <a href="{{route('register-candidate')}}" class="get-started-btn scrollto">Registrarse</a>
       @endif
     </div>
   </header><!-- End Header -->
