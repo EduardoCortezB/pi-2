@@ -46,7 +46,7 @@ toastr.options = {
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/panel">Inicio</a></li>
-              <li class="breadcrumb-item active">Grupos</li>
+              <li class="breadcrumb-item active">Horarios de clase</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -77,11 +77,22 @@ toastr.options = {
                   <tbody class="table-group-divider">
                     @foreach ($classes as $class_time)
                     <tr>
-                        <th scope="row">{{$level->id}}</th>
-                        <td>{{$class_time->name_level}}</td>
+                        <th scope="row">{{$class_time->id}}</th>
+                        <td>{{$class_time->start_time}} Horas</td>
+                        <td>{{$class_time->end_time}} Horas</td>
+                        <td>{{$class_time->start_date}}</td>
+                        <td>{{$class_time->end_date}}</td>
+                        <td>{{$class_time->daysPerWeek}}</td>
                         <td>
-                            <a href="{{route('class_time.edit',$level->id)}}" class="btn btn-info">Editar</a>
-                            <form action="{{route('level.destroy', $level->id)}}" method="POST" style="display: inline">
+                            @if ($class_time->isActive==1)
+                                <p class="text-monospace text-success">Activo</p>
+                            @else
+                                <p class="text-monospace text-danger">Inactivo</p>
+                            @endif
+                        </td>
+                        <td>
+                            <a href="{{route('class_time.edit',$class_time->id)}}" class="btn btn-info">Editar</a>
+                            <form action="{{route('class_time.destroy', $class_time->id)}}" method="POST" style="display: inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Eliminar</button>

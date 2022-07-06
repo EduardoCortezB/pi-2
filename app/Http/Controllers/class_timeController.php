@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Class_time;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 use Helpers\DateCodification;
+use Illuminate\Session\SessionManager;
 
 class class_timeController extends Controller
 {
@@ -16,7 +17,7 @@ class class_timeController extends Controller
      */
     public function index()
     {
-        $classes=Class_time::paginate(5);
+        $classes=Class_time::paginate(10);
 
         // dd(DateCodification::getDaysInArray('4,5'));
         return view('panel.content-admin.class_time.index', compact('classes'));
@@ -39,9 +40,28 @@ class class_timeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,SessionManager $sessionManage)
     {
-        var_dump(DateCodification::getDaysFromIntToStrHuman(DateCodification::getStrIntFromRequest($request)));
+        $this->validate($request,[
+            'start-time'    => 'required',
+            'end-time'      => 'required',
+            'start-date'    => 'required',
+            'end-date'      => 'required',
+        ]);
+
+        $cr = [
+            'start_time'    => $request->get('start-time'),
+            'end_time'      => $request->get('end-time'),
+            'start_date'    => $request->get('start-date'),
+            'end_date'      => $request->get('end-date'),
+            'isActive'      => true,
+            'daysPerWeek'   => DateCodification::getDaysFromIntToStrHuman(DateCodification::getStrIntFromRequest($request))
+        ];
+
+        Class_time::create($cr);
+
+        $sessionManage->flash('message', 'Se creado el horario exitosamente');
+        return redirect()->route('class_time.index');
     }
 
     /**
@@ -64,6 +84,10 @@ class class_timeController extends Controller
     public function edit($id)
     {
         //
+        $class_time=Class_time::find($id);
+        $class_tD = DateCodification::getDaysFromStrHumToArr($class_time->daysPerWeek);
+
+        return view('panel.content-admin.class_time.edit', compact('class_time','class_tD'));
     }
 
     /**
@@ -73,9 +97,30 @@ class class_timeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, SessionManager $sessionManage)
     {
         //
+        $this->validate($request,[
+            'start-time'    => 'required',
+            'end-time'      => 'required',
+            'start-date'    => 'required',
+            'end-date'      => 'required',
+            'isActive'      => 'required',
+        ]);
+        $cr = [
+            'start_time'    => $request->get('start-time'),
+            'end_time'      => $request->get('end-time'),
+            'start_date'    => $request->get('start-date'),
+            'end_date'      => $request->get('end-date'),
+            'isActive'      => $request->get('isActive'),
+            'daysPerWeek'   => DateCodification::getDaysFromIntToStrHuman(DateCodification::getStrIntFromRequest($request))
+        ];
+
+        $class_time=class_time::find($id);
+        $class_time->update($cr);
+
+        $sessionManage->flash('message', 'Se editado el horario exitosamente');
+        return redirect()->route('class_time.index');
     }
 
     /**
@@ -87,5 +132,7 @@ class class_timeController extends Controller
     public function destroy($id)
     {
         //
+        Class_time::find($id)->delete();
+        return redirect()->route('class_time.index');
     }
 }

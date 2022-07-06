@@ -23,6 +23,38 @@ class DateCodification{
         }
         return $outDaysString;
     }
+    // Obtenemos un estring de entrada el cual tendra los dias de la semana en
+    // letra
+    // El método retornara un array con enteros dependiendo del dia de la semana
+    // Ejemplo de entrada
+    // ['Lunes','Jueves']
+    // Ejemplo de salida
+    // array(2) { [0]=> array(1) { ["Lunes"]=> int(1) } [1]=> array(1) { ["Jueves"]=> int(4) } }
+    public static function getDaysFromStrHumToArr($inStr){
+
+        $ouArr=[];
+        $days = [
+            'Lunes'     => 1,
+            'Martes'    => 2,
+            'Miércoles' => 3,
+            'Jueves'    => 4,
+            'Viernes'   => 5,
+            'Sábado'    => 6,
+            'Domingo'   => 7
+        ];
+        $inStr = str_replace(' ','',$inStr);
+        $inArr = explode(',',$inStr);
+
+        foreach($days as $key => $val){
+            foreach ($inArr as $_key => $_val) {
+                if ($key == $_val) {
+                    // array_push($ouArr, [$key=>$val]);
+                    $ouArr[$key][]= $val;
+                }
+            }
+        }
+        return $ouArr;
+    }
 
     public static function getStrIntFromRequest($request){
         $outStr='';

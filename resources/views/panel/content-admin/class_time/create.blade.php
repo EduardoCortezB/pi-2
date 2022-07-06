@@ -29,85 +29,35 @@
           <div class="row">
             <div class="col-md-2">
               <label for="validationCustom01">Hora de inicio</label>
-              <select name="start-time" class="custom-select">
-                <option selected>Selecciona la hora</option>
-                <option value="1">01 AM</option>
-                <option value="2">02 AM</option>
-                <option value="3">03 AM</option>
-                <option value="4">04 AM</option>
-                <option value="5">05 AM</option>
-                <option value="6">06 AM</option>
-                <option value="7">07 AM</option>
-                <option value="8">08 AM</option>
-                <option value="9">09 AM</option>
-                <option value="10">10 AM</option>
-                <option value="11">11 AM</option>
-                <option value="12">12 PM</option>
-                <option value="13">01 PM</option>
-                <option value="14">02 PM</option>
-                <option value="15">03 PM</option>
-                <option value="16">04 PM</option>
-                <option value="17">05 PM</option>
-                <option value="18">06 PM</option>
-                <option value="19">07 PM</option>
-                <option value="20">08 PM</option>
-                <option value="21">09 PM</option>
-                <option value="22">10 PM</option>
-                <option value="23">11 PM</option>
-                <option value="24">12 AM</option>
-              </select>
+              <input type="time" class="form-control" name="start-time">
               @error('start-time')
                 <div class="text-danger">{{ $message }}</div>
               @enderror
             </div>
             <div class="col-md-2">
                 <label for="validationCustom01">Hora de Finalización</label>
-                <select name="end-time" class="custom-select">
-                    <option selected>Selecciona la hora</option>
-                    <option value="1">01 AM</option>
-                    <option value="2">02 AM</option>
-                    <option value="3">03 AM</option>
-                    <option value="4">04 AM</option>
-                    <option value="5">05 AM</option>
-                    <option value="6">06 AM</option>
-                    <option value="7">07 AM</option>
-                    <option value="8">08 AM</option>
-                    <option value="9">09 AM</option>
-                    <option value="10">10 AM</option>
-                    <option value="11">11 AM</option>
-                    <option value="12">12 PM</option>
-                    <option value="13">01 PM</option>
-                    <option value="14">02 PM</option>
-                    <option value="15">03 PM</option>
-                    <option value="16">04 PM</option>
-                    <option value="17">05 PM</option>
-                    <option value="18">06 PM</option>
-                    <option value="19">07 PM</option>
-                    <option value="20">08 PM</option>
-                    <option value="21">09 PM</option>
-                    <option value="22">10 PM</option>
-                    <option value="23">11 PM</option>
-                    <option value="24">12 AM</option>
-                  </select>
-                @error('end-time')
+                <input type="time" class="form-control" name="end-time">
+
+                  @error('end-time')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="col-md-2">
                 <label for="validationCustom01">Fecha de inicio</label>
-                <input type="date" name="start-date" class="form-control" value="2018-07-22" min="2022-07-04" max="2024-12-31">
+                <input type="date" name="start-date" class="form-control" value="">
                 @error('start-date')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="col-md-2">
                 <label for="validationCustom01">Fecha de finalización</label>
-                <input type="date" name="end-date" class="form-control" value="2018-07-22" min="2022-07-04" max="2024-12-31">
+                <input type="date" name="end-date" class="form-control" value="">
                 @error('end-date')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="col-md-5 mt-1">
+                <h3>Selecciona los días</h3>
                 <div class="col-md-12 custom-control custom-checkbox">
                     <input type="checkbox" name="mo" value="1" class="custom-control-input" id="lunes">
                     <label class="custom-control-label" for="lunes">Lunes</label>
