@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Career;
 use Illuminate\Http\Request;
+use Illuminate\Session\SessionManager;
 
 class careerController extends Controller
 {
@@ -14,6 +16,8 @@ class careerController extends Controller
     public function index()
     {
         //
+        $careers=Career::paginate(5);
+        return view('panel.content-admin.career.index', compact('careers'));
     }
 
     /**
@@ -24,6 +28,7 @@ class careerController extends Controller
     public function create()
     {
         //
+        return view('panel.content-admin.career.create');
     }
 
     /**
@@ -32,16 +37,23 @@ class careerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, SessionManager $sessionManager)
     {
         //
+        $this->validate($request,[
+            'career_name' => 'required'
+        ]);
+        Career::create($request->all());
+        $sessionManager->flash('message', 'Se ha creado la carrera exitosamente');
+        return redirect()->route('career.index');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @re
+     * turn \Illuminate\Http\Response
      */
     public function show($id)
     {
@@ -57,6 +69,8 @@ class careerController extends Controller
     public function edit($id)
     {
         //
+        $career=Career::find($id);
+        return view('panel.content-admin.career.edit',compact('career'));
     }
 
     /**
@@ -66,9 +80,18 @@ class careerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, SessionManager $sessionManager)
     {
         //
+        $this->validate($request, [
+            'career_name' => 'required'
+        ]);
+
+        $career=Career::find($id);
+        $career->update($request->all());
+
+        $sessionManager->flash('message', 'Se ha editado exitosamente el elemento.');
+        return redirect()->route('career.index');
     }
 
     /**
@@ -77,8 +100,11 @@ class careerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, SessionManager $sessionManage)
     {
         //
+        Career::find($id)->delete();
+        $sessionManage->flash('message', 'Se ha eliminado el registro exitosamente.');
+        return redirect()->route('career.index');
     }
 }

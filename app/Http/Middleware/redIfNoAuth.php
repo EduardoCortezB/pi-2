@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Session\SessionManager;
 
 class redIfNoAuth
 {
@@ -20,7 +21,6 @@ class redIfNoAuth
         if (Auth::check()) {
             return $next($request);
         }
-
         return redirect('/login');
     }
 }

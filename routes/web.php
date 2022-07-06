@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\levelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\levelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\panelController;
-use App\Http\Controllers\RegisterAspirantController;
+use App\Http\Controllers\careerController;
 use App\Http\Controllers\class_timeController;
+use App\Http\Controllers\RegisterAspirantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,5 @@ Route::group(['middleware'=>'auth.redIfNoAuth'],function(){
     Route::resource('/user', UserController::class);
     Route::resource('/level', levelController::class);
     Route::resource('/class_time', class_timeController::class);
+    Route::resource('/career', careerController::class);
 });
