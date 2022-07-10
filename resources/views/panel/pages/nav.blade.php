@@ -66,6 +66,28 @@
                 </a>
               </li>
         </ul> <!-- End users -->
+        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- groups -->
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#groups" role="button" aria-expanded="false" aria-controls="groups">
+                    <i class="nav-icon fa-solid fa-user-group"></i>
+                  <p>
+                    Grupos
+                  </p>
+                  <i class="right fa-solid fa-caret-down"></i>
+                </a>
+              </li>
+        </ul> <!-- End groups -->
+        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="groups"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu users -->
+          <li class="nav-item">
+            <a href="{{ route('period.index') }}" class="nav-link">
+                <i class="nav-icon fa-solid fa-calendar-check"></i>
+                <p>
+                    Periodos
+                </p>
+            </a>
+          </li>
+        </ul> <!-- end submenu users -->
+
         <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#users" role="button" aria-expanded="false" aria-controls="users">

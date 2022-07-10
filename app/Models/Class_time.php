@@ -18,4 +18,8 @@ class Class_time extends Model
         'daysPerWeek'
     ];
     protected $hidden = ['id'];
+
+    public function period(){
+        $this->hasMany(period::class);
+    }
 }

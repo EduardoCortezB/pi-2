@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\panelController;
 use App\Http\Controllers\careerController;
 use App\Http\Controllers\class_timeController;
+use App\Http\Controllers\periodController;
 use App\Http\Controllers\RegisterAspirantController;
 
 /*
@@ -42,4 +43,5 @@ Route::group(['middleware'=>'auth.redIfNoAuth'],function(){
     Route::resource('/level', levelController::class);
     Route::resource('/class_time', class_timeController::class);
     Route::resource('/career', careerController::class);
+    Route::resource('/period', periodController::class);
 });

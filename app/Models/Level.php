@@ -11,4 +11,9 @@ class Level extends Model
     protected $table = 'table_levels';
 
     protected $fillable = ['id', 'name_level'];
+
+    public function period(){
+        $this->hasMany(period::class);
+    }
+
 }
