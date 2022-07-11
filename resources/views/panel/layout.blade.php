@@ -86,5 +86,34 @@ If you will modify any module of this web app create a new version when end.
 @yield('content-page')
 
 @include('panel.pages.footer')
+<script>
+$(document).ready( function () {
+    try {
+        $(document.querySelectorAll('table')[0]).DataTable( {
+            dom: 'Bfrtip',
+            columnDefs: [
+                {
+                    targets: -1,
+                    visible: true
+                }
+            ],
+            buttons: [
+
+                'copy', 'csv', 'excel', 'pdf',
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }, 'colvis'
+
+            ]
+        } );
+        document.querySelectorAll('table')[0].style=''
+    } catch (error) {
+
+    }
+ } );
+</script>
 </body>
 </html>

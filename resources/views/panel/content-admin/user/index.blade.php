@@ -58,7 +58,7 @@ toastr.options = {
     <div class="content">
       <div class="container-fluid">
         <div class="table-responsive">
-            <table class="table">
+            <table class="table" id="table">
                 <thead>
                     <tr>
                       <th scope="col">#</th>
