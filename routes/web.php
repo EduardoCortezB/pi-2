@@ -28,20 +28,37 @@ Route::get('/aboutus', function () {
     return view('landingPage.aboutus');
 });
 Route::group(['middleware'=>'auth.isAuth'], function(){
-    Route::get('/register-candidate', [RegisterAspirantController::class, 'create'])->name('register-candidate');
-    Route::post('/register-candidate', [RegisterAspirantController::class, 'store']);
+    // register user from student UI
+    Route::get('/register-candidate', [RegisterAspirantController::class, 'createUser'])->name('register-candidate');
+    Route::post('/register-candidate', [RegisterAspirantController::class, 'storeUser']);
 
-    Route::get('/login', [LoginController::class, 'index']);
-    Route::post('/login', [LoginController::class,'store']);
+    Route::get('/login', [LoginController::class, 'index']); // both
+    Route::post('/login', [LoginController::class,'store']); // both
 });
 
 
 Route::group(['middleware'=>'auth.redIfNoAuth'],function(){
-    Route::get('/log-out', [LoginController::class, 'logOut']);
-    Route::resource('/panel', panelController::class);
-    Route::resource('/user', UserController::class);
-    Route::resource('/level', levelController::class);
-    Route::resource('/class_time', class_timeController::class);
-    Route::resource('/career', careerController::class);
-    Route::resource('/period', periodController::class);
+    Route::get('/log-out', [LoginController::class, 'logOut']); // both
+    Route::resource('/panel', panelController::class); // both
+    Route::resource('/user', UserController::class); // admin
+    Route::resource('/level', levelController::class); // admin
+    Route::resource('/class_time', class_timeController::class); //admin
+    Route::resource('/career', careerController::class); // admin
+    Route::resource('/period', periodController::class); // admin
+
+    // list index of inscriptions from admin dashboard
+    Route::get('/inscriptions', [RegisterAspirantController::class, 'index'])->name('inscriptions');
+
+    // detalles de inscripcion
+    Route::get('/inscriptions/details/{id}', [RegisterAspirantController::class, 'details']);
+
+    // detalles de inscripcion
+    Route::put('/inscriptions/assign/{id}', [RegisterAspirantController::class, 'assign']);
+
+    // eliminar preinscripcion
+    // Route::get('/inscriptions/{id}', [RegisterAspirantController::class, 'destroy'])->name('inscriptions.validated');
+
+    // add new inscription from admin panel
+    Route::get('/add_inscription', [RegisterAspirantController::class, 'createInscriptionFromAdmin'])->name('add_inscription');
+    Route::post('/add_inscription', [RegisterAspirantController::class, 'storeInscriptionFromAdmin'])->name('add_inscription');
 });

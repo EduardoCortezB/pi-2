@@ -51,7 +51,7 @@ class UserController extends Controller
 
         User::create($request->all());
 
-        $sessionManage->flash('message', 'Se creado la cuenta exitosamente.');
+        $sessionManage->flash('message', 'Se ha creado la cuenta exitosamente.');
         return redirect()->route('user.index');
 
     }
@@ -75,7 +75,6 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
         $user=User::find($id);
         $roles=Rol::all();
         return view('panel.content-admin.user.edit', compact('user', 'roles'));

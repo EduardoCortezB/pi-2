@@ -28,4 +28,8 @@ class period extends Model
     public function class_time(){
         return $this->belongsTo(Class_time::class,'id_class_time','id');
     }
+
+    public function candidate(){
+        $this->hasMany(candidate::class);
+    }
 }

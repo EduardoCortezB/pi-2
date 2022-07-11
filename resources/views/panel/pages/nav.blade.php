@@ -75,12 +75,21 @@
                   </p>
                   <i class="right fa-solid fa-caret-down"></i>
                 </a>
-              </li>
+            </li>
         </ul> <!-- End groups -->
         <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="groups"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu users -->
-          <li class="nav-item">
-            <a href="{{ route('period.index') }}" class="nav-link">
-                <i class="nav-icon fa-solid fa-calendar-check"></i>
+            <li class="nav-item">
+                <a href="{{ route('inscriptions') }}" class="nav-link">
+                  <i class="nav-icon fa-solid fa-sheet-plastic"></i>
+                  <p>
+                      Preiscripciones
+                  </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('period.index') }}" class="nav-link">
+                    <i class="nav-icon fa-solid fa-calendar-check"></i>
                 <p>
                     Periodos
                 </p>
@@ -89,7 +98,7 @@
         </ul> <!-- end submenu users -->
 
         <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
-            <li class="nav-item">
+            <li class="nav-item" >
                 <a class="nav-link" data-toggle="collapse" href="#users" role="button" aria-expanded="false" aria-controls="users">
                     <i class="nav-icon fa-solid fa-user"></i>
                   <p>

@@ -14,4 +14,7 @@ class Career extends Model
         'career_name',
         'created_at'
     ];
+    public function candidate(){
+        $this->hasMany(candidate::class);
+    }
 }

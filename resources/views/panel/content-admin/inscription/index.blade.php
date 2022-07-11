@@ -41,12 +41,12 @@ toastr.options = {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Periodos</h1>
+            <h1 class="m-0">Preinscripciones</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/panel">Inicio</a></li>
-              <li class="breadcrumb-item active">Periodo</li>
+              <li class="breadcrumb-item active">Preinscripciones</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -58,49 +58,70 @@ toastr.options = {
     <div class="content">
       <div class="container-fluid">
         <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="{{route('period.create')}}" class="btn btn-secondary m-1">Agregar nuevo periodo</a>
+            <a href="{{route('add_inscription')}}" class="btn btn-secondary m-1">Agregar nueva preinscripción</a>
           </div>
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nombre del grupo</th>
-                      <th scope="col">Fecha de Inicio</th>
-                      <th scope="col">Fecha de Finalización</th>
-                      <th scope="col">Año</th>
+                      <th scope="col">Estudiante</th>
                       <th scope="col">Nivel</th>
-                      <th scope="col">Días</th>
-                      <th scope="col">Estado</th>
+                      <th scope="col">Horario</th>
+                      <th scope="col">Estudiante de UTTN</th>
+                      <th scope="col">Idioma</th>
+                      <th scope="col">Grupo</th>
                       <th scope="col">Acciones</th>
                     </tr>
                   </thead>
                   <tbody class="table-group-divider">
-                    @foreach ($periods as $period)
+                    @foreach ($inscriptions as $inscription)
                     <tr>
-                        <th scope="row">{{$period->id}}</th>
-                        <td>{{$period->groupName}}</td>
-                        <td>{{$period['start-date']}}</td>
-                        <td>{{$period['end-date']}}</td>
-                        <td>{{$period->year}}</td>
-                        <td>{{$period->level->name_level}}</td>
-                        <td>{{$period->class_time->daysPerWeek}}</td>
+                        <th scope="row">{{$inscription->id}}</th>
+                        <td>{{$inscription->user->name}} {{$inscription->user->lastName}}</td>
+                        <td>{{$inscription->level->name_level}}</td>
                         <td>
-                            @if ($period->isActive==1)
-                                <p class="text-monospace text-success">Activo</p>
-                            @else
-                                <p class="text-monospace text-danger">Inactivo</p>
+                            @if ($inscription->class_time->isActive==1)
+                                    {{$inscription->class_time->start_time}} Horas a {{$inscription->class_time->end_time}} de {{$inscription->class_time->daysPerWeek}}
+                                @else
+                                    <p class="text-monospace text-danger">El horario esta desactivado ID {{$inscription->class_time->id}}</p>
                             @endif
                         </td>
                         <td>
-                            <a href="{{route('period.edit',$period->id)}}" class="btn btn-info">Editar</a>
+                            @if ($inscription->career_id != null)
+                                {{$inscription->career->career_name}}
+                            @else
+                                <p class="text-monospace text-danger">No es alumno de la UTTN</p>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($inscription->language_id!= null)
+                                {{$inscription->language->language}}
+                            @else
+                                <p class="text-monospace text-danger">El idioma esta desactivado ID {{$inscription->language_id}}</p>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($inscription->id_period!=null)
+                                {{$inscription->period->groupName}}
+                            @else
+                                <p class="text-monospace text-danger">Sin grupo asignado</p>
+                            @endif
+                        </td>
+                        <td>
+                            <a href="inscriptions/details/{{$inscription->id}}" class="btn btn-info">Ver detalles</a>
+                            {{-- <form action="{{route('level.destroy', $inscription->id)}}" method="POST" style="display: inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form> --}}
                         </td>
                       </tr>
                     @endforeach
                   </tbody>
             </table>
             <div class="pagination justify-content-end">
-                {!! $periods->links() !!}
+                {{-- {!! $levels->links() !!} --}}
             </div>
           </div>
 

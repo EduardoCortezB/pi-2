@@ -22,4 +22,7 @@ class Class_time extends Model
     public function period(){
         $this->hasMany(period::class);
     }
+    public function candidate(){
+        $this->hasMany(candidate::class);
+    }
 }

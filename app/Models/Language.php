@@ -5,19 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Level extends Model
+class Language extends Model
 {
     use HasFactory;
-    protected $table = 'table_levels';
-
-    protected $fillable = ['id', 'name_level'];
-
-    public function period(){
-        $this->hasMany(period::class);
-    }
+    protected $table = 'languages';
+    protected $fillable = [
+        'language'
+    ];
 
     public function candidate(){
         $this->hasMany(candidate::class);
     }
-
 }

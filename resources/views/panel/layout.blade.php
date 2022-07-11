@@ -47,6 +47,13 @@ If you will modify any module of this web app create a new version when end.
     [class*="sidebar-dark-"] .sidebar a {
         color: #202020 !important;
     }
+
+    .navbar-white {
+        background-color: #009879 !important;
+        color: #ffffff !important;
+    }
+
+
 </style>
 
   @include('panel.pages.head')
