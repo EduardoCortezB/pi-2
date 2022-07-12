@@ -14,6 +14,10 @@ class Language extends Model
     ];
 
     public function candidate(){
-        $this->hasMany(candidate::class);
+        return $this->hasMany(candidate::class);
+    }
+
+    public function period(){
+        return $this->hasMany(period::class);
     }
 }

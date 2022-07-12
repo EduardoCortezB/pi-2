@@ -2,10 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Session\SessionManager;
 
 class paymentController extends Controller
 {
+    public function validatePdf($id_payment, SessionManager $sessionManager){
+
+        $payment=Payment::find($id_payment);
+        $data=[
+            'is_valid'      => true
+        ];
+        $payment->update($data);
+        $sessionManager->flash('message', 'Pago validado');
+        return redirect()->back();
+    }
+
+
     /**
      * Display a listing of the resource.
      *

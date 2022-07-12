@@ -30,6 +30,10 @@ class period extends Model
     }
 
     public function candidate(){
-        $this->hasMany(candidate::class);
+        return $this->hasMany(candidate::class);
+    }
+
+    public function language(){
+        return $this->belongsTo(Language::class);
     }
 }

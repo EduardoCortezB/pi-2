@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\candidate;
 use App\Models\User;
-use App\Models\Career;
-use App\Models\Class_time;
-use App\Models\Language;
 use App\Models\Level;
+use App\Models\Career;
+use App\Models\period;
+use App\Models\Payment;
+use App\Models\Language;
+use App\Models\candidate;
+use App\Models\Class_time;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Session\SessionManager;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\filesAdminController;
 
 class RegisterAspirantController extends Controller
 {
@@ -31,19 +34,36 @@ class RegisterAspirantController extends Controller
 
     // ver detalles de la preinscripcion
     public function details($id){
-        dd($id);
+
+        $inscription=candidate::find($id);
+        // $payment= Payment::where('id_candidat', $id)->get();
+        $payment=Payment::all(); $payments=$payment->where('id_candidat','=',$id);
+        try {
+            $payment=$payments[0];
+            $filePdfName = $payment->path;
+        } catch (\Throwable $th) {
+            $payment=(object)[
+                'id_candidat'=>null,
+                'is_valid'=>0,
+            ];
+        }
+        $periods=period::all();
+        return view('panel.content-admin.inscription.details', compact('inscription','payment','periods','filePdfName'));
     }
 
     // asignar grupo a preinscripcion
-    public function assign($id){
-        dd($id);
+    public function assign(Request $request,$id, SessionManager $sessionManager){
+        $grupo = candidate::find($id);
+
+        $data=[
+            'id_period'     => $request->get('id_period')
+        ];
+        $grupo->update($data);
+        $sessionManager->flash('message', 'Se le a asignado el grupo a la solicitud');
+        return redirect()->route('inscriptions');
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+    // crear usuario en el portal
     public function storeUser(Request $request, SessionManager $sessionManage){
         $this->validate($request, [
             'name' => 'required|min:2|max:25',

@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pdf_payments', function (Blueprint $table) {
-            $table->id();
-            $table->string('path');
-            $table->timestamps();
+        Schema::table('table_payments', function (Blueprint $table) {
+            //
+            $table->string('path')->nullable();
         });
     }
 
@@ -27,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pdf_payments');
+        Schema::table('table_paymemnts', function (Blueprint $table) {
+            //
+        });
     }
 };

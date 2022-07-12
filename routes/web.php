@@ -6,9 +6,11 @@ use App\Http\Controllers\levelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\panelController;
 use App\Http\Controllers\careerController;
-use App\Http\Controllers\class_timeController;
 use App\Http\Controllers\periodController;
+use App\Http\Controllers\class_timeController;
+use App\Http\Controllers\filesAdminController;
 use App\Http\Controllers\RegisterAspirantController;
+use App\Http\Controllers\paymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,8 +54,15 @@ Route::group(['middleware'=>'auth.redIfNoAuth'],function(){
     // detalles de inscripcion
     Route::get('/inscriptions/details/{id}', [RegisterAspirantController::class, 'details']);
 
-    // detalles de inscripcion
-    Route::put('/inscriptions/assign/{id}', [RegisterAspirantController::class, 'assign']);
+    // asignar grupo a la preinscripcion
+    Route::put('/inscription/assign/{id_period}', [RegisterAspirantController::class, 'assign']);
+
+    // validar pago
+    Route::put('/inscription/payment_ok/{id_payment}', [paymentController::class, 'validatePdf'])->name('inscription.validate');
+
+    // pdf payments
+    Route::get('/pdf/payments/{path}', [filesAdminController::class, 'viewPdf']);
+    Route::get('/pdf/payments/upload', [filesAdminController::class, 'store']);
 
     // eliminar preinscripcion
     // Route::get('/inscriptions/{id}', [RegisterAspirantController::class, 'destroy'])->name('inscriptions.validated');

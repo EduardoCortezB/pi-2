@@ -89,6 +89,7 @@ If you will modify any module of this web app create a new version when end.
 <script>
 $(document).ready( function () {
     try {
+        if (document.querySelectorAll('table')[0].getAttribute('nonDatatable')!=null) return
         $(document.querySelectorAll('table')[0]).DataTable( {
             dom: 'Bfrtip',
             columnDefs: [
