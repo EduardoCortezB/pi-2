@@ -48,7 +48,7 @@
           {{-- <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> --}}
         </div>
         <div class="info">
-          <p class="d-block">{{Auth::user()->name}}</p>
+          <p class="d-block">Hola {{Auth::user()->name}}</p>
           <p class="d-block"><b>Función </b>{{Auth::user()->rol->name_role}}</p>
         </div>
       </div>
@@ -168,37 +168,62 @@
       @endif
       @if (Auth::user()->id_rol == 2)
       <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- groups -->
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#groups" role="button" aria-expanded="false" aria-controls="groups">
+                    <i class="nav-icon fa-solid fa-user-group"></i>
+                  <p>
+                    Preinscripciones
+                  </p>
+                  <i class="right fa-solid fa-caret-down"></i>
+                </a>
+            </li>
+        </ul> <!-- End groups -->
+        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="groups"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu users -->
+            <li class="nav-item">
+                <a href="{{route('preinscription.create')}}" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    Iniciar preinscripción
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('preinscription.index', 'act=pending')}}" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                   Preinscripciones pendientes
+                  </p>
+                </a>
+              </li>
+        </ul> <!-- end submenu users -->
+
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
+                <a href="{{route('preinscription.index', 'act=cursing')}}" class="nav-link">
+                  <i class="nav-icon fa-solid fa-school-circle-check"></i>
                   <p>
                     Cursando
                   </p>
                 </a>
-              </li>
+            </li>
+
             <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Iniciar preinscripción
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-               Preinscripciones pendientes
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-               Perfil
-              </p>
+                <a href="{{route('preinscription.index')}}" class="nav-link">
+                  <i class="nav-icon fa-solid fa-clock-rotate-left"></i>
+                  <p>
+                    Historial
+                  </p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-user"></i>
+                <p>
+                Perfil
+                </p>
             </a>
           </li>
         </ul>

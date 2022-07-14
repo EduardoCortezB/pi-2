@@ -88,12 +88,12 @@ class RegisterAspirantController extends Controller
     }
 
     public function createInscriptionFromAdmin(){
-        $careers=Career::all();
-        $languages=Language::all();
-        $levels=Level::all();
+        $careers=DB::table('table_career')->where('isActive','=',1)->get();
+        $languages=DB::table('languages')->where('isActive','=',1)->get();
+        $levels=DB::table('table_levels')->where('isActive','=',1)->get();
         $class_times=DB::table('table_class_times')->where('isActive','=',1)->get();
-        // dd($class_times);
         $students=DB::select('SELECT * FROM users WHERE id_rol=2');
+
         return view('panel.content-admin.inscription.create', compact('careers', 'languages', 'levels', 'class_times', 'students'));
     }
 

@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\student;
 
-use App\Http\Controllers\Controller;
+use App\Models\candidate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Models\period;
+use Illuminate\Session\SessionManager;
+use Illuminate\Support\Facades\Auth;
 
 class preinscriptionStudentController extends Controller
 {
@@ -12,9 +17,22 @@ class preinscriptionStudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(Request $request){
+        $info=[];
+        $info['isCoursing']=($request->get('act')=='pending') ? false : true;
+        if ($request->get('act')=='pending') {
+            $inscriptions=candidate::where('user_id',Auth::user()->id)
+            ->where('isCoursing',0)->paginate(5);
+            return view('panel.content.preinscriptions.index', compact('inscriptions', 'info'));
+        }
+        if ($request->get('act')=='cursing') {
+            $inscriptions=candidate::where('user_id',Auth::user()->id)
+            ->where('isCoursing',1)->paginate(5);
+            return view('panel.content.preinscriptions.index', compact('inscriptions', 'info'));
+        }
+
+        $inscriptions=candidate::where('user_id',Auth::user()->id)->paginate(5);
+        return view('panel.content.preinscriptions.index', compact('inscriptions', 'info'));
     }
 
     /**
@@ -22,9 +40,13 @@ class preinscriptionStudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
+        $careers=DB::table('table_careers')->where('isActive','=',1)->get();
+        $languages=DB::table('languages')->where('isActive','=',1)->get();
+        $levels=DB::table('table_levels')->where('isActive','=',1)->get();
+        $class_times=DB::table('table_class_times')->where('isActive','=',1)->get();
 
+        return view('panel.content.preinscriptions.create', compact('careers','languages','levels','class_times'));
     }
 
     /**
@@ -33,9 +55,46 @@ class preinscriptionStudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request, SessionManager $sessionManager){
+        if ($request->get('isUttStudent') == '1') {
+
+            // estudia en la universidad
+            $this->validate($request,[
+                'language_id'       => 'required',
+                'level_id'       => 'required',
+                'class_time_id'       => 'required',
+                'career_id'     => 'required'
+            ]);
+            $data=[
+                'language_id'       => $request->get('language_id'),
+                'level_id'       => $request->get('level_id'),
+                'user_id'       => Auth::user()->id,
+                'class_time_id'       => $request->get('class_time_id'),
+                'career_id'     => $request->get('career_id'),
+                'isCoursing'    => false,
+                'id_period'     => null,
+            ];
+        }else{
+            $this->validate($request,[
+            // no estudia en la universidad
+                'language_id'       => 'required',
+                'level_id'       => 'required',
+                'class_time_id'       => 'required'
+            ]);
+            $data=[
+                'language_id'       => $request->get('language_id'),
+                'level_id'       => $request->get('level_id'),
+                'user_id'       => Auth::user()->id,
+                'class_time_id'       => $request->get('class_time_id'),
+                'career_id'     =>  null,
+                'isCoursing'    => false,
+                'id_period'     => null,
+            ];
+        }
+        candidate::create($data);
+
+        $sessionManager->flash('message', 'Se ha creado la preinscripción correctamente.');
+        return redirect()->route('preinscription.index');
     }
 
     /**
