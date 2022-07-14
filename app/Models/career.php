@@ -12,7 +12,8 @@ class Career extends Model
     protected $fillable = [
         'id',
         'career_name',
-        'created_at'
+        'created_at',
+        'isActive'
     ];
     public function candidate(){
         $this->hasMany(candidate::class);

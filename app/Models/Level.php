@@ -10,7 +10,7 @@ class Level extends Model
     use HasFactory;
     protected $table = 'table_levels';
 
-    protected $fillable = ['id', 'name_level'];
+    protected $fillable = ['id', 'name_level', 'isActive'];
 
     public function period(){
         $this->hasMany(period::class);

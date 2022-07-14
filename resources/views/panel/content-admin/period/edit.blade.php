@@ -8,13 +8,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Agregar Periodo</h1>
+            <h1 class="m-0">Editar Periodo</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/panel">Inicio</a></li>
               <li class="breadcrumb-item"><a href="{{route('period.index')}}">Periodos</a></li>
-              <li class="breadcrumb-item active">Agregar Periodo</li>
+              <li class="breadcrumb-item active">Editar Periodo</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -55,7 +55,7 @@
                             <label for="start_month">Mes:</label>
                             <input type="hidden" id="monthStartHidden" value="{{$periodDate['date-start'][1]}}">
                             <select id="start_month" class="form-control" name="start_month">
-                                @for ($i = 0; $i < 11; $i++)
+                                @for ($i = 0; $i <= 11; $i++)
                                     @if ($months[$i]==$periodDate['date-start'][1])
                                         <option selected>{{$months[$i]}}</option>
                                     @else
@@ -86,7 +86,8 @@
                             <label for="end_month">Mes:</label>
                             <input type="hidden" id="monthEndHidden" value="{{$periodDate['date-end'][1]}}">
                               <select id="end_month" class="form-control" name="end_month">
-                                @for ($i = 0; $i < 11; $i++)
+
+                                @for ($i = 0; $i <= 11; $i++)
                                     @if ($months[$i]==$periodDate['date-end'][1])
                                         <option selected>{{$months[$i]}}</option>
                                     @else
@@ -114,7 +115,7 @@
             </div>
             <div class="col-md-6">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="id_level">Selecciona el nivel del lenguaje</label>
                         <select id="id_level" class="form-control" name="id_level">
                             <option selected hidden disabled>Seleccionar</option>
@@ -130,11 +131,11 @@
                         <div class="text-danger">{{ $message }}</div>
                       @enderror
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div>
                             <label>Estado del grupo</label>
                         </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline mt-4">
                                 <input class="form-check-input" type="radio" name="isActive" id="inlineRadio1" value="1"
                                 {{ ($period->isActive==1) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="inlineRadio1">Activo</label>
@@ -144,6 +145,21 @@
                                 {{ ($period->isActive==0) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="inlineRadio2">Inactivo</label>
                             </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="id_level">Selecciona el lenguaje</label>
+                        <select id="language_id" class="form-control" name="language_id">
+                            @foreach ($languages as $lang)
+                                @if ($lang->id==$period->language_id)
+                                    <option selected value="{{$lang->id}}">{{$lang->language}}</option>
+                                @else
+                                    <option value="{{$lang->id}}">{{$lang->language}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        @error('language_id')
+                        <div class="text-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                 </div>
             </div>

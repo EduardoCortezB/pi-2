@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Level;
 use App\Models\period;
+use App\Models\Language;
 use App\Models\Class_time;
 use Illuminate\Http\Request;
-use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Session\SessionManager;
 
 class periodController extends Controller
 {
@@ -30,10 +31,11 @@ class periodController extends Controller
      */
     public function create(){
         //
-        $levelsLang = Level::all(['id','name_level']);
+        $levelsLang = DB::select('SELECT * FROM table_levels WHERE isActive=1');
         $class_times = DB::select('SELECT * FROM table_class_times WHERE isActive=1');
+        $languages = DB::select('SELECT * FROM languages WHERE isActive=1');
 
-        return view('panel.content-admin.period.create',compact('levelsLang','class_times'));
+        return view('panel.content-admin.period.create',compact('levelsLang','class_times','languages'));
     }
 
     /**
@@ -51,6 +53,7 @@ class periodController extends Controller
             'end_day' => 'required',
             'end_month' => 'required',
             'id_level' => 'required',
+            'id_language' => 'required',
             'id_class_time' => 'required',
         ]);
 
@@ -61,8 +64,10 @@ class periodController extends Controller
             'end-date'      => $request->get('end_day') .'-'. $request->get('end_month'),
             'id_level'      => $request->get('id_level'),
             'id_class_time' => $request->get('id_class_time'),
+            'language_id' => $request->get('id_language'),
             'isActive' => true,
         ];
+        // dd($data);
         period::create($data);
         $sessionManager->flash('message', 'Se creado exitosamente el periodo.');
         return redirect()->route('period.index');
@@ -95,9 +100,11 @@ class periodController extends Controller
             'date-start'     => explode('-',$period['start-date']),
             'date-end'     => explode('-',$period['end-date']),
         ];
+        $languages = DB::select('SELECT * FROM languages WHERE isActive=1');
+
         // $periodDate['date-end'][0] # dia
         // $periodDate['date-end'][1] # mes
-        return view('panel.content-admin.period.edit', compact('months','levelsLang','class_times','period','periodDate'));
+        return view('panel.content-admin.period.edit', compact('months','levelsLang','class_times','period','periodDate', 'languages'));
     }
 
     /**

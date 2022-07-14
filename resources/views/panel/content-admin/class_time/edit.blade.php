@@ -44,19 +44,18 @@
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="col-md-2">
-                <label for="validationCustom01">Fecha de inicio</label>
-                <input type="date" value="{{$class_time->start_date}}" name="start-date" class="form-control" value="">
-                @error('start-date')
-                  <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="col-md-2">
-                <label for="validationCustom01">Fecha de finalización</label>
-                <input type="date" value="{{$class_time->end_date}}" name="end-date" class="form-control" value="">
-                @error('end-date')
-                  <div class="text-danger">{{ $message }}</div>
-                @enderror
+            <div class="col-md-4">
+                <h3>Estado del curso</h3>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="isActive" id="inlineRadio1" value="1"
+                    {{ ($class_time->isActive==1) ? 'checked' : '' }}>
+                    <label class="form-check-label" for="inlineRadio1">Activo</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="isActive" id="inlineRadio2" value="0"
+                    {{ ($class_time->isActive==0) ? 'checked' : '' }}>
+                    <label class="form-check-label" for="inlineRadio2">Inactivo</label>
+                </div>
             </div>
             <div class="col-md-5 mt-1">
                 <h3>Selecciona los días</h3>
@@ -87,19 +86,6 @@
                 <div class="col-md-12 custom-control custom-checkbox">
                     <input type="checkbox" name="su" value="7" {{ isset($class_tD['Domingo'][0]) ? 'checked' : '' }} class="custom-control-input" id="domingo">
                     <label class="custom-control-label" for="domingo">Domingo</label>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <h3>Estado del curso</h3>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="isActive" id="inlineRadio1" value="1"
-                    {{ ($class_time->isActive==1) ? 'checked' : '' }}>
-                    <label class="form-check-label" for="inlineRadio1">Activo</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="isActive" id="inlineRadio2" value="0"
-                    {{ ($class_time->isActive==0) ? 'checked' : '' }}>
-                    <label class="form-check-label" for="inlineRadio2">Inactivo</label>
                 </div>
             </div>
             <div class="col-md-12 d-grid gap-2 pt-4">

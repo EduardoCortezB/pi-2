@@ -28,12 +28,25 @@
             @csrf
             @method('PUT')
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
               <label for="validationCustom01">Nombre del nivel</label>
               <input type="text" name="name_level" value="{{$level->name_level}}" class="form-control @error('name') border-danger @enderror" id="validationCustom01" placeholder="Nombre" required>
               @error('name_level')
                 <div class="text-danger">{{ $message }}</div>
               @enderror
+            </div>
+            <div class="col-md-6">
+                <h3>Estado del curso</h3>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="isActive" id="inlineRadio1" value="1"
+                    {{ ($level->isActive==1) ? 'checked' : '' }}>
+                    <label class="form-check-label" for="inlineRadio1">Activo</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="isActive" id="inlineRadio2" value="0"
+                    {{ ($level->isActive==0) ? 'checked' : '' }}>
+                    <label class="form-check-label" for="inlineRadio2">Inactivo</label>
+                </div>
             </div>
             <div class="col-md-12 d-grid gap-2 pt-4">
               <button class="btn btn-primary" type="submit">Editar</button>

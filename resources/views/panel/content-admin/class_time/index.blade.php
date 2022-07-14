@@ -67,8 +67,6 @@ toastr.options = {
                       <th scope="col">#</th>
                       <th scope="col">Hora de inicio</th>
                       <th scope="col">Hora de finalización</th>
-                      <th scope="col">Fecha de inicio</th>
-                      <th scope="col">Fecha de finalización</th>
                       <th scope="col">Días de la semana</th>
                       <th scope="col">Estado</th>
                       <th scope="col">Acciones</th>
@@ -80,8 +78,6 @@ toastr.options = {
                         <th scope="row">{{$class_time->id}}</th>
                         <td>{{$class_time->start_time}} Horas</td>
                         <td>{{$class_time->end_time}} Horas</td>
-                        <td>{{$class_time->start_date}}</td>
-                        <td>{{$class_time->end_date}}</td>
                         <td>{{$class_time->daysPerWeek}}</td>
                         <td>
                             @if ($class_time->isActive==1)
@@ -95,7 +91,14 @@ toastr.options = {
                             <form action="{{route('class_time.destroy', $class_time->id)}}" method="POST" style="display: inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                @if ($class_time->isActive==1)
+                                    <input type="hidden" name="_action" value="0">
+                                    <button type="submit" class="btn btn-danger">Desactivar</button>
+                                    @else
+                                    @method('DELETE')
+                                    <input type="hidden" name="_action" value="1">
+                                    <button type="submit" class="btn btn-success">Activar</button>
+                                @endif
                             </form>
                         </td>
                       </tr>

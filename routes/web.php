@@ -60,8 +60,9 @@ Route::group(['middleware'=>'auth.redIfNoAuth'],function(){
     // validar pago
     Route::put('/inscription/payment_ok/{id_payment}', [paymentController::class, 'validatePdf'])->name('inscription.validate');
 
-    // pdf payments
+    // pdf payments se paymentd pdf
     Route::get('/pdf/payments/{path}', [filesAdminController::class, 'viewPdf']);
+    // upload pdf payment
     Route::get('/pdf/payments/upload', [filesAdminController::class, 'store']);
 
     // eliminar preinscripcion

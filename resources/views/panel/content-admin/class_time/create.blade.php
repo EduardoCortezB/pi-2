@@ -27,14 +27,14 @@
         <form action="{{route('class_time.store')}}" class="g-3 needs-validation php-email-form" method="POST" novalidate>
             @csrf
           <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-6">
               <label for="validationCustom01">Hora de inicio</label>
               <input type="time" class="form-control" name="start-time">
               @error('start-time')
                 <div class="text-danger">{{ $message }}</div>
               @enderror
             </div>
-            <div class="col-md-2">
+            <div class="col-md-6">
                 <label for="validationCustom01">Hora de Finalización</label>
                 <input type="time" class="form-control" name="end-time">
 
@@ -42,21 +42,7 @@
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="col-md-2">
-                <label for="validationCustom01">Fecha de inicio</label>
-                <input type="date" name="start-date" class="form-control" value="">
-                @error('start-date')
-                  <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="col-md-2">
-                <label for="validationCustom01">Fecha de finalización</label>
-                <input type="date" name="end-date" class="form-control" value="">
-                @error('end-date')
-                  <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="col-md-5 mt-1">
+            <div class="col-md-12 mt-1">
                 <h3>Selecciona los días</h3>
                 <div class="col-md-12 custom-control custom-checkbox">
                     <input type="checkbox" name="mo" value="1" class="custom-control-input" id="lunes">

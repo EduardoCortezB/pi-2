@@ -66,6 +66,7 @@ toastr.options = {
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Nombre del rol</th>
+                      <th scope="col">Estatus</th>
                       <th scope="col">Acciones</th>
                     </tr>
                   </thead>
@@ -75,11 +76,24 @@ toastr.options = {
                         <th scope="row">{{$career->id}}</th>
                         <td>{{$career->career_name}}</td>
                         <td>
+                            @if ($career->isActive==1)
+                                <p class="text-monospace text-success">Activo</p>
+                            @else
+                                <p class="text-monospace text-danger">Inactivo</p>
+                            @endif
+                        </td>
+                        <td>
                             <a href="{{route('career.edit',$career->id)}}" class="btn btn-info">Editar</a>
                             <form action="{{route('career.destroy', $career->id)}}" method="POST" style="display: inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                @if ($career->isActive==1)
+                                    <input type="hidden" name="_action" value="0">
+                                    <button type="submit" class="btn btn-danger">Desactivar</button>
+                                @else
+                                    <input type="hidden" name="_action" value="1">
+                                    <button type="submit" class="btn btn-success">Activar</button>
+                                @endif
                             </form>
                         </td>
                       </tr>

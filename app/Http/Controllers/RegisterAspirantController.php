@@ -38,6 +38,7 @@ class RegisterAspirantController extends Controller
         $inscription=candidate::find($id);
         // $payment= Payment::where('id_candidat', $id)->get();
         $payment=Payment::all(); $payments=$payment->where('id_candidat','=',$id);
+        $filePdfName = null;
         try {
             $payment=$payments[0];
             $filePdfName = $payment->path;

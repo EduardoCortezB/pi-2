@@ -43,7 +43,11 @@ class careerController extends Controller
         $this->validate($request,[
             'career_name' => 'required'
         ]);
-        Career::create($request->all());
+        $data=[
+            'career_name'=>$request->get('career_name'),
+            'isActive'=>true,
+        ];
+        Career::create($data);
         $sessionManager->flash('message', 'Se ha creado la carrera exitosamente');
         return redirect()->route('career.index');
     }
@@ -100,11 +104,16 @@ class careerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, SessionManager $sessionManage)
+    public function destroy(Request $request,$id, SessionManager $sessionManage)
     {
         //
-        Career::find($id)->delete();
-        $sessionManage->flash('message', 'Se ha eliminado el registro exitosamente.');
+        $career=Career::find($id);
+        $data=[
+            'isActive'=> ($request->get('_action')== '1') ? true : false,
+        ];
+        // dd($data);
+        $career->update($data);
+        $sessionManage->flash('message', 'Se ha realizado la solicitud.');
         return redirect()->route('career.index');
     }
 }

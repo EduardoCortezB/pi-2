@@ -18,7 +18,8 @@ class period extends Model
         'isActive',
         'year',
         'id_level',
-        'id_class_time'
+        'id_class_time',
+        'language_id'
     ];
 
     public function level(){
@@ -34,6 +35,6 @@ class period extends Model
     }
 
     public function language(){
-        return $this->belongsTo(Language::class);
+        return $this->belongsTo(Language::class,'language_id','id');
     }
 }

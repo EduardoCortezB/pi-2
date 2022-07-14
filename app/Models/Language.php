@@ -10,7 +10,9 @@ class Language extends Model
     use HasFactory;
     protected $table = 'languages';
     protected $fillable = [
-        'language'
+        'id',
+        'language',
+        'isActive'
     ];
 
     public function candidate(){

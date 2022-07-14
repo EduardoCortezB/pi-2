@@ -42,7 +42,11 @@ class levelController extends Controller
             'name_level'     => 'required'
         ]);
 
-        Level::create($request->all());
+        $data = [
+            'name_level'  => $request->get('name_level'),
+            'isActive'  => true,
+        ];
+        Level::create($data);
 
         $sessionManage->flash('message', 'Se creado el nuevo nivel exitosamente.');
         return redirect()->route('level.index');
@@ -83,7 +87,8 @@ class levelController extends Controller
     {
         //
         $this->validate($request, [
-            'name_level' => 'required'
+            'name_level' => 'required',
+            'isActive' => 'required',
         ]);
         $level=Level::find($id);
         $level->update($request->all());
@@ -98,10 +103,15 @@ class levelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id, SessionManager $sessionManage)
     {
-        //
-        Level::find($id)->delete();
+        $level=Level::find($id);
+        $data=[
+            'isActive'=> ($request->get('_action')== '1') ? true : false,
+        ];
+        $level->update($data);
+
+        $sessionManage->flash('message', 'Se ha realizado el cambio solicitado.');
         return redirect()->route('level.index');
     }
 }

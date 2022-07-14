@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_class_times', function (Blueprint $table) {
-            $table->id();
-            $table->string('start_time');
-            $table->string('end_time');
-            // $table->string('start_date');
-            // $table->string('end_date');
+        Schema::table('languages', function (Blueprint $table) {
             $table->boolean('isActive');
-            $table->timestamps();
         });
     }
 
@@ -31,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_class_times');
+        Schema::table('languages', function (Blueprint $table) {
+            //
+        });
     }
 };

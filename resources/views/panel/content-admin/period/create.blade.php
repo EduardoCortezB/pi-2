@@ -53,6 +53,7 @@
                                 <label for="start_month">Mes:</label>
                                 <select id="start_month" class="form-control" name="start_month">
                                   <option selected hidden disabled>Seleccionar</option>
+                                  <option>Enero</option>
                                   <option>Febrero</option>
                                   <option>Marzo</option>
                                   <option>Abril</option>
@@ -117,17 +118,31 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <label for="id_level">Selecciona el nivel del lenguaje</label>
-                <select id="id_level" class="form-control" name="id_level">
-                    <option selected hidden disabled>Seleccionar</option>
-                    @foreach ($levelsLang as $level)
-                    <option value="{{$level->id}}">{{$level->name_level}}</option>
-                    @endforeach
-                </select>
-                @error('id_level')
-                <div class="text-danger">{{ $message }}</div>
-              @enderror
+            <div class="col-md-6 row">
+                <div class="col-md-6">
+                    <label for="id_level">Selecciona el nivel del lenguaje</label>
+                    <select id="id_level" class="form-control" name="id_level">
+                        <option selected hidden disabled>Seleccionar</option>
+                        @foreach ($levelsLang as $level)
+                        <option value="{{$level->id}}">{{$level->name_level}}</option>
+                        @endforeach
+                    </select>
+                    @error('id_level')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <label for="id_language">Selecciona el lenguaje del grupo</label>
+                    <select id="id_language" class="form-control" name="id_language">
+                        <option selected hidden disabled>Seleccionar</option>
+                        @foreach ($languages as $lang)
+                        <option value="{{$lang->id}}">{{$lang->language}}</option>
+                        @endforeach
+                    </select>
+                    @error('id_language')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
             <div class="col-md-6">
                 <label for="id_class_time">Selecciona el horario para el periodo</label>
@@ -167,8 +182,11 @@
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
+
+      <h5><i class="fa-solid fa-triangle-exclamation" style="color: rgb(255, 230, 0)"></i>Importante</h5>
+      <p>Todos los elementos como: Nivel, Idioma y Horario serán ocultados si no estan habilitados/activos, si requiere esa información habilitelos o cree uno nuevo.
+        Tenga en cuenta que esa información se vera reflejada en el formulario de creación de preinscripciones en el sistema de alumno.
+      </p>
     </div>
   </aside>
   <!-- /.control-sidebar -->

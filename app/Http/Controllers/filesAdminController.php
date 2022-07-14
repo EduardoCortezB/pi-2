@@ -31,6 +31,7 @@ class filesAdminController extends Controller
     }
 
     public function store(Request $request){
+        // validar si esta autenticado
         dd($request);
     }
 }

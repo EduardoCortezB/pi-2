@@ -12,8 +12,6 @@ class Class_time extends Model
     protected $fillable = [
         'start_time',
         'end_time',
-        'start_date',
-        'end_date',
         'isActive',
         'daysPerWeek'
     ];

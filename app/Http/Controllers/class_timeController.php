@@ -45,15 +45,11 @@ class class_timeController extends Controller
         $this->validate($request,[
             'start-time'    => 'required',
             'end-time'      => 'required',
-            'start-date'    => 'required',
-            'end-date'      => 'required',
         ]);
 
         $cr = [
             'start_time'    => $request->get('start-time'),
             'end_time'      => $request->get('end-time'),
-            'start_date'    => $request->get('start-date'),
-            'end_date'      => $request->get('end-date'),
             'isActive'      => true,
             'daysPerWeek'   => DateCodification::getDaysFromIntToStrHuman(DateCodification::getStrIntFromRequest($request))
         ];
@@ -103,15 +99,11 @@ class class_timeController extends Controller
         $this->validate($request,[
             'start-time'    => 'required',
             'end-time'      => 'required',
-            'start-date'    => 'required',
-            'end-date'      => 'required',
             'isActive'      => 'required',
         ]);
         $cr = [
             'start_time'    => $request->get('start-time'),
             'end_time'      => $request->get('end-time'),
-            'start_date'    => $request->get('start-date'),
-            'end_date'      => $request->get('end-date'),
             'isActive'      => $request->get('isActive'),
             'daysPerWeek'   => DateCodification::getDaysFromIntToStrHuman(DateCodification::getStrIntFromRequest($request))
         ];
@@ -129,10 +121,14 @@ class class_timeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id,SessionManager $sessionManage)
     {
-        //
-        Class_time::find($id)->delete();
+        $class=Class_time::find($id);
+        $data=[
+            'isActive'=> ($request->get('_action')== '1') ? true : false,
+        ];
+        $class->update($data);
+        $sessionManage->flash('message', 'Se ha realizado el cambio solicitado.');
         return redirect()->route('class_time.index');
     }
 }

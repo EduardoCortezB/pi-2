@@ -91,6 +91,7 @@ $(document).ready( function () {
     try {
         if (document.querySelectorAll('table')[0].getAttribute('nonDatatable')!=null) return
         $(document.querySelectorAll('table')[0]).DataTable( {
+            'order': [[0, 'desc']],
             dom: 'Bfrtip',
             columnDefs: [
                 {
