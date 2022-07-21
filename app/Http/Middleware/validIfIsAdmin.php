@@ -17,7 +17,8 @@ class validIfIsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->id ==1) {
+        // dd(Auth::user()->rol->id);
+        if (Auth::user()->rol->id ==1) {
             return $next($request);
         }
 

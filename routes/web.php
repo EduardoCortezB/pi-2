@@ -27,19 +27,23 @@ use App\Http\Controllers\student\preinscriptionStudentController;
 Route::get('/', function () {
     return view('landingPage.index');
 })->name('index');
+
 Route::get('/aboutus', function () {
     return view('landingPage.aboutus');
 });
+
 Route::group(['middleware'=>'auth.isAuth'], function(){
-    // register user from student UI
+    // register user from register UI
     Route::get('/register-candidate', [RegisterAspirantController::class, 'createUser'])->name('register-candidate');
     Route::post('/register-candidate', [RegisterAspirantController::class, 'storeUser']);
 
     Route::get('/login', [LoginController::class, 'index']); // both
     Route::post('/login', [LoginController::class,'store']); // both
 });
+
 Route::group(['middleware'=>'auth.redIfNoAuth'],function(){
     Route::get('/log-out', [LoginController::class, 'logOut']); // both
+
     Route::resource('/panel', panelController::class); // both
 
     // preinscriptions from student
