@@ -1,4 +1,4 @@
-name: S3 Sync
+name: S3 Sync project
 
 on:
   push:
