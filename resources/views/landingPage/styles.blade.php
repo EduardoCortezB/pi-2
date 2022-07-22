@@ -24,4 +24,8 @@
     .tabs .tab-content {
     margin-top: 0px !important;
     }
+
+    .faq .faq-list p {
+        font-size: 20px
+    }
   </style>

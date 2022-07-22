@@ -64,28 +64,28 @@
             <div class="col-md-6">
                 <ul class="nav nav-tabs row d-flex justify-content-md-center">
                     <li class="nav-item col-3">
-                      <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
-                        <h4 class="d-lg-block">NIVELES A1 Y A2</h4>
+                      <a class="nav-link active show" style="padding: 0px !important;" data-bs-toggle="tab" data-bs-target="#tab-1">
+                        <p class="d-lg-block mt-3">NIVEL A1 Y A2</p>
                       </a>
                     </li>
                     <li class="nav-item col-3">
-                      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
-                        <h4 class="d-lg-block">NIVEL B1</h4>
+                      <a class="nav-link" style="padding: 0px !important;" data-bs-toggle="tab" data-bs-target="#tab-2">
+                        <p class="d-lg-block mt-3">NIVEL B1</p>
                       </a>
                     </li>
                     <li class="nav-item col-3">
-                      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
-                        <h4 class="d-lg-block">NIVEL B2</h4>
+                      <a class="nav-link" style="padding: 0px !important;" data-bs-toggle="tab" data-bs-target="#tab-3">
+                        <p class="d-lg-block mt-3">NIVEL B2</p>
                       </a>
                     </li>
                     <li class="nav-item col-3">
-                      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
-                        <h4 class="d-lg-block">NIVEL C1</h4>
+                      <a class="nav-link" style="padding: 0px !important;" data-bs-toggle="tab" data-bs-target="#tab-4">
+                        <p class="d-lg-block mt-3">NIVEL C1</p>
                       </a>
                     </li>
                     <li class="nav-item col-3 mt-3">
-                      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5">
-                        <h4 class="d-lg-block">NIVEL C2</h4>
+                      <a class="nav-link" style="padding: 0px !important;" data-bs-toggle="tab" data-bs-target="#tab-5">
+                        <p class="d-lg-block mt-3">NIVEL C2</p>
                       </a>
                     </li>
                   </ul>
@@ -195,10 +195,10 @@
         <ul class="faq-list accordion" data-aos="fade-up">
 
           <li>
-            <a data-bs-toggle="collapse" class="" data-bs-target="#faq1" aria-expanded="true">¿Cuáles son los costos? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-            <div id="faq1" class="collapse show" data-bs-parent=".faq-list" style="">
+            <a data-bs-toggle="collapse" class="" data-bs-target="#faq1" aria-expanded="true" style="font-size: 30px">¿Cuáles son los costos? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <div id="faq1" class="collapse show" data-bs-parent=".faq-list">
                 <div>
-                    <p><b>Costos</b></p>
+                    <p>Costos</p>
                     <table class="table table-sm">
                         <tbody>
                             <tr>
@@ -215,7 +215,7 @@
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq2" class="collapsed">¿Cuál es la duración del curso? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq2" class="collapsed" style="font-size: 30px">¿Cuál es la duración del curso? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq2" class="collapse" data-bs-parent=".faq-list">
               <p>
                 La duración del curso es de 10 Semanas 60 horas.
@@ -224,29 +224,28 @@
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq3" class="collapsed">¿Cuáles son los beneficios del CELUT? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq3" class="collapsed" style="font-size: 30px">¿Cuáles son los beneficios del CELUT? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq3" class="collapse" data-bs-parent=".faq-list">
                 <table class="table table-sm">
                     <tbody>
                         <tr>
-                            <p>• NO COBRAMOS INSCRIPCIÓN</p>
+                            <p>• No cobramos inscripción.</p>
                         </tr>
                         <tr>
-                            <p>• ÙNICO PAGO POR 4 MESES</p>
+                            <p>• Único pago por 4 meses.</p>
                         </tr>
                         <tr>
-                            <p>• EL PRECIO MÀS ECONÒMICO EN LA REGIÓN</p>
+                            <p>• El precio más economico de la región.</p>
                         </tr>
                         <tr>
-                            <p>• OBTENIENDO EL NIVEL B1 APLICAN PARA CONVOCATORIAS INTERNACIONALES:
+                            <p>• Obteniendo el B1 aplican para becas internacionales:
                                 FRANCIA,CANADA,ESTADOS UNIDOS</p>
                         </tr>
                         <tr>
-                            <p>                • UBICACIÓN DE LA OFICINA DEL CENTRO DEL LENGUAS UT ESTA DENTRO DEL
-                                CAMPUS(CARRERA DE MANTENIMIENTO)</p>
+                            <p>• Ubicación de la oficina del CELUT esta dentro del campus de mantenimiento(CARRERA DE MANTENIMIENTO)</p>
                         </tr>
                         <tr>
-                            <p>                • HORARIOS FLEXIBLES</p>
+                            <p>                • Horarios flexibles</p>
                         </tr>
                     </tbody>
                 </table>
@@ -254,7 +253,7 @@
           </li>
 
           <li>
-            <a data-bs-toggle="collapse" data-bs-target="#faq4" class="collapsed">Opciones de becas a Canadá <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+            <a data-bs-toggle="collapse" data-bs-target="#faq4" class="collapsed" style="font-size: 30px">Opciones de becas a Canadá <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
             <div id="faq4" class="collapse" data-bs-parent=".faq-list">
                 <table class="table table-sm">
                     <tbody>
