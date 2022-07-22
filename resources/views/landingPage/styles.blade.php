@@ -19,3 +19,9 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/vendor/main-tmp.css') }}" rel="stylesheet">
+
+  <style>
+    .tabs .tab-content {
+    margin-top: 0px !important;
+    }
+  </style>
