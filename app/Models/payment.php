@@ -12,7 +12,7 @@ class Payment extends Model
     protected $fillable = [
         'id',
         'is_valid',
-        'idPath', // pendiente por hacer nullable
+        'path', // pendiente por hacer nullable
         'id_candidat' // id de la preinscripcion
     ];
 }

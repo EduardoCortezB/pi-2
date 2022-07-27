@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\student;
 
+use App\Models\period;
+use App\Models\Payment;
 use App\Models\candidate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\period;
-use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Session\SessionManager;
 
 class preinscriptionStudentController extends Controller
 {
@@ -103,9 +104,22 @@ class preinscriptionStudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id){
+        $user = Auth::user();
+        $inscription=candidate::find($id);
+        $payment=Payment::all(); $payments=$payment->where('id_candidat','=',$id);
+        $filePdfName = null;
+        try {
+            $payment=$payments[0];
+            $filePdfName = $payment->path;
+        } catch (\Throwable $th) {
+            $payment=(object)[
+                'id_candidat'=>null,
+                'is_valid'=>0,
+            ];
+        }
+        // dd($payment);
+        return view('panel.content.preinscriptions.show',compact('user','inscription','payment'));
     }
 
     /**

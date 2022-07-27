@@ -105,107 +105,113 @@
     </section><!-- End About Section -->
 
     <!-- ======= Tabs Section ======= -->
-    <section id="tabs" class="tabs">
+    <section id="tabs" class="tabs" style="padding-top: 0px !important;padding-buttom: 120px !important;
+    overflow: hidden;
+    position: relative;">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
             <h2>Niveles</h2>
             <p>Conoce los niveles y su descripción.</p>
-          </div>
-
-        <ul class="nav nav-tabs row d-flex justify-content-md-center">
-          <li class="nav-item col-3">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
-              <h4 class="d-none d-lg-block">NIVELES A1 Y A2</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
-              <h4 class="d-none d-lg-block">NIVEL B1</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
-              <h4 class="d-none d-lg-block">NIVEL B2</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
-              <h4 class="d-none d-lg-block">NIVEL C1</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3 mt-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5">
-              <h4 class="d-none d-lg-block">NIVEL C2</h4>
-            </a>
-          </li>
-        </ul>
-
-        <div class="tab-content">
-          <div class="tab-pane active show" id="tab-1">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
-                <h3>Niveles A1 y A2. Esencial.</h3>
-                <p>
-                    <b>A1 Esencial: </b>
-                    Desarrollar las bases de las habilidades de leer, escribir, entender y
-                    hablar.
-                </p>
-                <p>
-                    <b>A2 Básico: </b>
-                    Poder expresarte en Inglés en forma básica y simple; además de
-                    seguir aprendiendo.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane" id="tab-2">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Nivel B1, intermedio.</h3>
-                <p>
-                    Poder expresarte con soltura y fluidez en Inglés.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane" id="tab-3">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Avanzado Nivel B2.</h3>
-                <p>
-                    Adquirir vocabulario y estructuras gramaticales complejas que
-                    permitirán desenvolverte en cualquier conversación en Inglés.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane" id="tab-4">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Profesional C1</h3>
-                <p>
-                    Hablar y refutar en una conversación compleja en Inglés, además de
-                    producir cualquier tipo de texto e información en Inglés. Acreditar
-                    certificaciones como TOEFL,ITP,TOEIC.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane" id="tab-5">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Nivel C2 Maestria.</h3>
-                <p>
-                    Hablar y refutar en una conversación compleja en Inglés, además de
-                    producir cualquier tipo de texto e información en Inglés. Acreditar
-                    certificaciones como TOEFL, ITP, TOEIC.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs row d-flex justify-content-md-center">
+                    <li class="nav-item col-3">
+                      <a class="nav-link active show" style="padding: 0px !important;" data-bs-toggle="tab" data-bs-target="#tab-1">
+                        <p class="d-lg-block mt-3">NIVEL A1 Y A2</p>
+                      </a>
+                    </li>
+                    <li class="nav-item col-3">
+                      <a class="nav-link" style="padding: 0px !important;" data-bs-toggle="tab" data-bs-target="#tab-2">
+                        <p class="d-lg-block mt-3">NIVEL B1</p>
+                      </a>
+                    </li>
+                    <li class="nav-item col-3">
+                      <a class="nav-link" style="padding: 0px !important;" data-bs-toggle="tab" data-bs-target="#tab-3">
+                        <p class="d-lg-block mt-3">NIVEL B2</p>
+                      </a>
+                    </li>
+                    <li class="nav-item col-3">
+                      <a class="nav-link" style="padding: 0px !important;" data-bs-toggle="tab" data-bs-target="#tab-4">
+                        <p class="d-lg-block mt-3">NIVEL C1</p>
+                      </a>
+                    </li>
+                    <li class="nav-item col-3 mt-3">
+                      <a class="nav-link" style="padding: 0px !important;" data-bs-toggle="tab" data-bs-target="#tab-5">
+                        <p class="d-lg-block mt-3">NIVEL C2</p>
+                      </a>
+                    </li>
+                  </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="tab-1">
+                      <div class="row">
+                        <div class="order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+                          <h3>Niveles A1 y A2. Esencial.</h3>
+                          <p>
+                              <b>A1 Esencial: </b>
+                              Desarrollar las bases de las habilidades de leer, escribir, entender y
+                              hablar.
+                          </p>
+                          <p>
+                              <b>A2 Básico: </b>
+                              Poder expresarte en Inglés en forma básica y simple; además de
+                              seguir aprendiendo.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="tab-2">
+                      <div class="row">
+                        <div class="order-2 order-lg-1 mt-3 mt-lg-0">
+                          <h3>Nivel B1, intermedio.</h3>
+                          <p>
+                              Poder expresarte con soltura y fluidez en Inglés.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="tab-3">
+                      <div class="row">
+                        <div class="order-2 order-lg-1 mt-3 mt-lg-0">
+                          <h3>Avanzado Nivel B2.</h3>
+                          <p>
+                              Adquirir vocabulario y estructuras gramaticales complejas que
+                              permitirán desenvolverte en cualquier conversación en Inglés.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="tab-4">
+                      <div class="row">
+                        <div class="order-2 order-lg-1 mt-3 mt-lg-0">
+                          <h3>Profesional C1</h3>
+                          <p>
+                              Hablar y refutar en una conversación compleja en Inglés, además de
+                              producir cualquier tipo de texto e información en Inglés. Acreditar
+                              certificaciones como TOEFL,ITP,TOEIC.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="tab-5">
+                      <div class="row">
+                        <div class="order-2 order-lg-1 mt-3 mt-lg-0">
+                          <h3>Nivel C2 Maestria.</h3>
+                          <p>
+                              Hablar y refutar en una conversación compleja en Inglés, además de
+                              producir cualquier tipo de texto e información en Inglés. Acreditar
+                              certificaciones como TOEFL, ITP, TOEIC.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
       </div>
     </section><!-- End Tabs Section -->
 

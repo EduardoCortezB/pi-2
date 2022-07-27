@@ -50,7 +50,9 @@ Route::group(['middleware'=>'auth.redIfNoAuth'],function(){
     Route::resource('preinscription', preinscriptionStudentController::class);
 
     // upload pdf payment
-    Route::get('/pdf/payments/upload', [filesAdminController::class, 'store']);
+    Route::post('/pdf/payments/upload/{id}', [filesAdminController::class, 'store'])->name('upload.pdf');
+    Route::get('/pdf/payment/{path}', [filesAdminController::class, 'getPdfPath']);
+
 
     // eliminar preinscripcion
     // Route::get('/inscriptions/{id}', [RegisterAspirantController::class, 'destroy'])->name('inscriptions.validated');

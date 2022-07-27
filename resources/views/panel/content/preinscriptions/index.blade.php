@@ -109,7 +109,7 @@ toastr.options = {
                         </td>
                         <td>
                             <!-- Dar seguimiento a la preinscripción -->
-                            <a href="inscriptions/details/{{$inscription->id}}" class="btn btn-info">Ver detalles</a>
+                            <a href="{{route('preinscription.show', $inscription->id)}}" class="btn btn-info">Ver detalles</a>
                             {{-- <form action="{{route('level.destroy', $inscription->id)}}" method="POST" style="display: inline">
                                 @csrf
                                 @method('DELETE')

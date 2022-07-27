@@ -95,6 +95,10 @@ toastr.options = {
                                         <p class="text-monospace text-danger m-0">No es alumno de la UTTN</p>
                                     @endif
                                 </li>
+                                <li class="list-group-item">
+                                    <b>Hora de preferencia para el estudiante:</b>
+                                    {{$inscription->class_time->start_time}} Horas a {{$inscription->class_time->end_time}} los dias {{$inscription->class_time->daysPerWeek}}
+                                </li>
                             </ul>
                         </div>
                     </div>

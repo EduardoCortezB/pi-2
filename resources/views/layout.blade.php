@@ -8,10 +8,13 @@
   <meta content="" name="keywords">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Favicons -->
-  <link href="{{ asset('img/favicon.png') }}" rel="icon">
+  <link href="http://www.uttn.edu.mx/wp-content/uploads/2017/07/cropped-logo-ut-32x32.png" rel="icon">
     @include('landingPage.styles')
+
     @yield('styles')
+
     @include('landingPage.scripts')
+
     @yield('scripts')
 </head>
 <body>
@@ -19,6 +22,7 @@
     @include('landingPage.header')
     {{-- content of page --}}
     @yield('content-html')
+
     @include('landingPage.footer')
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 </body>

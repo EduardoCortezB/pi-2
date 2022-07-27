@@ -8,6 +8,7 @@ If you will modify any module of this web app create a new version when end.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://www.uttn.edu.mx/wp-content/uploads/2017/07/cropped-logo-ut-32x32.png" rel="icon">
   <title>Celut | Panel</title>
 
   <style>
