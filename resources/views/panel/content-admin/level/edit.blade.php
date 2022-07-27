@@ -36,7 +36,7 @@
               @enderror
             </div>
             <div class="col-md-6">
-                <h3>Estado del curso</h3>
+                <h3>Estado del nivel</h3>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="isActive" id="inlineRadio1" value="1"
                     {{ ($level->isActive==1) ? 'checked' : '' }}>

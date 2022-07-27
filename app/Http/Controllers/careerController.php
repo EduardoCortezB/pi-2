@@ -88,7 +88,8 @@ class careerController extends Controller
     {
         //
         $this->validate($request, [
-            'career_name' => 'required'
+            'career_name' => 'required',
+            'isActive' => 'required',
         ]);
 
         $career=Career::find($id);

@@ -36,8 +36,23 @@
                 <div class="text-danger">{{ $message }}</div>
               @enderror
             </div>
+            <div class="col-md-6">
+                <div class="col-md-6">
+                    <h3>Estado de la carrera</h3>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="isActive" id="inlineRadio1" value="1"
+                        {{ ($career->isActive==1) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="inlineRadio1">Activo</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="isActive" id="inlineRadio2" value="0"
+                        {{ ($career->isActive==0) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="inlineRadio2">Inactivo</label>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-12 d-grid gap-2 pt-4">
-              <button class="btn btn-primary" type="submit">Agregar</button>
+              <button class="btn btn-primary" type="submit">Editar</button>
             </div>
           </div>
         </form>
