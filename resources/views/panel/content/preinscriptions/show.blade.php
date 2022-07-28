@@ -147,7 +147,7 @@
                         @elseif ($payment->id_candidat!=null)
                         <div class="col-md-12">
                             {{-- <embed src="{{url("pdf/payment/$payment->path")}}#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf"/ style="width:100%; height:700px;"> --}}
-                            <iframe src="http://docs.google.com/gview?url={{url("pdf/payment/$payment->path")}}&embedded=true" style="width:100%; height:700px;" frameborder="0" ></iframe>
+                            <iframe src="http://docs.google.com/gview?url=https://celut.tk/pdf/payment/{{$payment->path}}")}}&embedded=true" style="width:100%; height:700px;" frameborder="0" ></iframe>
 
                         </div>
                         @endif
