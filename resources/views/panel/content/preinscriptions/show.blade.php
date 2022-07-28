@@ -146,16 +146,13 @@
                             </form>
                         @elseif ($payment->id_candidat!=null)
                         <div class="col-md-12">
-                            {{-- <embed src="#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf"/ style="width:100%; height:700px;"> --}}
+                            {{-- <embed src="{{url("pdf/payment/$payment->path")}}#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf"/ style="width:100%; height:700px;"> --}}
                             <iframe src="http://docs.google.com/gview?url={{url("pdf/payment/$payment->path")}}&embedded=true" style="width:100%; height:700px;" frameborder="0" ></iframe>
 
                         </div>
                         @endif
                     </div>
                 </div>
-            </div>
-            <div class="col-md-12" style="display: none;" id="viewPdf">
-                <embed src="{{url("pdf/payments/")}}#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="600px" />
             </div>
         </div>
 
