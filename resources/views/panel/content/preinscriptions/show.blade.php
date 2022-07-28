@@ -161,15 +161,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <script>
-    document.addEventListener('DOMContentLoaded',()=>{
-        const btnViewPdf = document.getElementById('btnPdf');
-        const viewPdf = document.getElementById('viewPdf');
-        btnViewPdf.addEventListener('click',()=>{
-            viewPdf.style='display: show;'
-        })
-
-    })
-  </script>
 @endsection
