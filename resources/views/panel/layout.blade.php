@@ -13,18 +13,21 @@ If you will modify any module of this web app create a new version when end.
 
   <style>
     .ul-users-menu {
-        background-color: #009879 !important;
+        background-color: #0000CC !important;
         border-radius: 5px
     }
 
+    .nav-item > .nav-link{
+        color: rgba(255, 255, 255, 0.904) !important;
+    }
 
     .ul-users-menu > li > a > p {
-        color: rgba(0, 0, 0, 0.904) !important;
+        color: rgba(255, 255, 255, 0.904) !important;
         /* color: #009879 !important; */
     }
 
     .ul-users-menu > li > a > i {
-        color: rgba(0, 0, 0, 0.904) !important;
+        color: rgba(255, 255, 255, 0.904) !important;
         /* color: #009879 !important; */
     }
 
@@ -46,11 +49,11 @@ If you will modify any module of this web app create a new version when end.
         background-color: transparent;
     }
     [class*="sidebar-dark-"] .sidebar a {
-        color: #202020 !important;
+        color: #000000 !important;
     }
 
     .navbar-white {
-        background-color: #009879 !important;
+        background-color: #0000CC !important;
         color: #ffffff !important;
     }
 
