@@ -22,17 +22,17 @@ class preinscriptionStudentController extends Controller
         $info=[];
         $info['isCoursing']=($request->get('act')=='pending') ? false : true;
         if ($request->get('act')=='pending') {
-            $inscriptions=candidate::where('user_id',Auth::user()->id)
-            ->where('isCoursing',0)->paginate(5);
+            $inscriptions=candidate::where('user_id','=',Auth::user()->id)
+            ->where('isCoursing','=',0)->paginate(5);
             return view('panel.content.preinscriptions.index', compact('inscriptions', 'info'));
         }
         if ($request->get('act')=='cursing') {
-            $inscriptions=candidate::where('user_id',Auth::user()->id)
-            ->where('isCoursing',1)->paginate(5);
+            $inscriptions=candidate::where('user_id','=',Auth::user()->id)
+            ->where('isCoursing','=',1)->paginate(5);
             return view('panel.content.preinscriptions.index', compact('inscriptions', 'info'));
         }
 
-        $inscriptions=candidate::where('user_id',Auth::user()->id)->paginate(5);
+        $inscriptions=candidate::where('user_id','=',Auth::user()->id)->paginate(5);
         return view('panel.content.preinscriptions.index', compact('inscriptions', 'info'));
     }
 

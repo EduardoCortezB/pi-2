@@ -57,7 +57,8 @@ class RegisterAspirantController extends Controller
         $grupo = candidate::find($id);
 
         $data=[
-            'id_period'     => $request->get('id_period')
+            'id_period'     => $request->get('id_period'),
+            'isCoursing'    => true,
         ];
         $grupo->update($data);
         $sessionManager->flash('message', 'Se le a asignado el grupo a la solicitud');
