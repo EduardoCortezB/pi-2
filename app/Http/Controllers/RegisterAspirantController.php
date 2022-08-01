@@ -37,10 +37,15 @@ class RegisterAspirantController extends Controller
 
         $inscription=candidate::find($id);
         // $payment= Payment::where('id_candidat', $id)->get();
-        $payment=Payment::all(); $payments=$payment->where('id_candidat','=',$id);
-        $filePdfName = null;
+        $payment=Payment::all();
+        $filePdfName='';
+        for ($i=0; $i < $payment->count(); $i++) {
+            if($payment[$i]->id_candidat == $id){
+                $payments=$payment[$i];
+            }
+        }
         try {
-            $payment=$payments[0];
+            $payment=$payments;
             $filePdfName = $payment->path;
         } catch (\Throwable $th) {
             $payment=(object)[
@@ -89,7 +94,7 @@ class RegisterAspirantController extends Controller
     }
 
     public function createInscriptionFromAdmin(){
-        $careers=DB::table('table_career')->where('isActive','=',1)->get();
+        $careers=DB::table('table_careers')->where('isActive','=',1)->get();
         $languages=DB::table('languages')->where('isActive','=',1)->get();
         $levels=DB::table('table_levels')->where('isActive','=',1)->get();
         $class_times=DB::table('table_class_times')->where('isActive','=',1)->get();

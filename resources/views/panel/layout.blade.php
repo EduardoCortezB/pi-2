@@ -116,6 +116,15 @@ $(document).ready( function () {
             ]
         } );
         document.querySelectorAll('table')[0].style=''
+    } catch (error) {}
+    try {
+        const buttons = document.querySelectorAll('.dt-button');
+        buttons.forEach(element => {
+            element.style='padding: 4px; margin: 1px !important; color: #ffffff; background-color: #0000CC; border:0px; border-radius: 5px';
+            if(element.children[1]){
+                element.children[1].style='color: #ffffff'
+            }
+        });
     } catch (error) {
 
     }

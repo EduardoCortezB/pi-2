@@ -41,12 +41,12 @@ toastr.options = {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Periodos</h1>
+            <h1 class="m-0">Idiomas</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/panel">Inicio</a></li>
-              <li class="breadcrumb-item active">Periodo</li>
+              <li class="breadcrumb-item active">Idiomas</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -58,52 +58,50 @@ toastr.options = {
     <div class="content">
       <div class="container-fluid">
         <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="{{route('period.create')}}" class="btn btn-secondary m-1">Agregar nuevo periodo</a>
+            <a href="{{route('language.create')}}" class="btn btn-secondary m-1">Agregar nuevo Idioma</a>
           </div>
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nombre del grupo</th>
-                      <th scope="col">Fecha de Inicio</th>
-                      <th scope="col">Fecha de Finalización</th>
-                      <th scope="col">Año</th>
-                      <th scope="col">Nivel</th>
-                      <th scope="col">Días</th>
+                      <th scope="col">Idioma</th>
                       <th scope="col">Estado</th>
                       <th scope="col">Acciones</th>
                     </tr>
                   </thead>
                   <tbody class="table-group-divider">
-                    @foreach ($periods as $period)
+                    @foreach ($levels as $level)
                     <tr>
-                        <th scope="row">{{$period->id}}</th>
-                        <td>{{$period->groupName}}</td>
-                        <td>{{$period['start-date']}}</td>
-                        <td>{{$period['end-date']}}</td>
-                        <td>{{$period->year}}</td>
-                        <td>{{$period->level->name_level}}</td>
-                        <td>{{$period->class_time->daysPerWeek}}</td>
+                        <th scope="row">{{$level->id}}</th>
+                        <td>{{$level->language}}</td>
                         <td>
-                            @if ($period->isActive==1)
+                            @if ($level->isActive==1)
                                 <p class="text-monospace text-success">Activo</p>
                             @else
                                 <p class="text-monospace text-danger">Inactivo</p>
                             @endif
                         </td>
-                        <td>
-                            <div class="row justify-content-center">
-                                <a href="{{route('period.edit',$period->id)}}" class="btn btn-info p-1">Editar</a>
-                                <a href="{{route('period.show',$period->id)}}" class="btn btn-secondary p-1 ml-1">Detalles</a>
-                            </div>
+                        <td class="row justify-content-center">
+                            <a href="{{route('language.edit',$level->id)}}" class="btn btn-info mr-1">Editar</a>
+                            <form action="{{route('language.destroy', $level->id)}}" method="POST" style="display: inline">
+                                @csrf
+                                @method('DELETE')
+                                @if ($level->isActive==1)
+                                    <input type="hidden" name="_action" value="0">
+                                    <button type="submit" class="btn btn-danger">Desactivar</button>
+                                @else
+                                    <input type="hidden" name="_action" value="1">
+                                    <button type="submit" class="btn btn-success">Activar</button>
+                                @endif
+                            </form>
                         </td>
                       </tr>
                     @endforeach
                   </tbody>
             </table>
             <div class="pagination justify-content-end">
-                {!! $periods->links() !!}
+                {!! $levels->links() !!}
             </div>
           </div>
 

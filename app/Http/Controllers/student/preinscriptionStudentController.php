@@ -107,18 +107,20 @@ class preinscriptionStudentController extends Controller
     public function show($id){
         $user = Auth::user();
         $inscription=candidate::find($id);
-        $payment=Payment::all(); $payments=$payment->where('id_candidat','=',$id);
-        $filePdfName = null;
+        $payment=Payment::all();
+        for ($i=0; $i < $payment->count(); $i++) {
+            if($payment[$i]->id_candidat == $id){
+                $payments=$payment[$i];
+            }
+        }
         try {
-            $payment=$payments[0];
-            $filePdfName = $payment->path;
+            $payment=$payments;
         } catch (\Throwable $th) {
             $payment=(object)[
                 'id_candidat'=>null,
                 'is_valid'=>0,
             ];
         }
-        // dd($payment);
         return view('panel.content.preinscriptions.show',compact('user','inscription','payment'));
     }
 

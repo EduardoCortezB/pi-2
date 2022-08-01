@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\candidate;
 use App\Models\Level;
 use App\Models\period;
 use App\Models\Language;
@@ -45,9 +46,9 @@ class periodController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, SessionManager $sessionManager){
+        // dd($request);
         $this->validate($request,[
             'groupName' => 'required',
-            'year' => 'required',
             'start_day' => 'required',
             'start_month' => 'required',
             'end_day' => 'required',
@@ -59,7 +60,7 @@ class periodController extends Controller
 
         $data=[
             'groupName'     => $request->get('groupName'),
-            'year'          => $request->get('year'),
+            'year'          => date('Y'),
             'start-date'    => $request->get('start_day') .'-'. $request->get('start_month'),
             'end-date'      => $request->get('end_day') .'-'. $request->get('end_month'),
             'id_level'      => $request->get('id_level'),
@@ -81,7 +82,11 @@ class periodController extends Controller
      */
     public function show($id)
     {
-        //
+        $period=period::find($id);
+        $students=candidate::all();
+        $students = $students->where('id_period','=',$id);
+        // dd($students);
+        return view('panel.content-admin.period.show',compact('period','students'));
     }
 
     /**

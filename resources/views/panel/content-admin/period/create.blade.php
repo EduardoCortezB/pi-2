@@ -37,9 +37,7 @@
             </div>
             <div class="col-md-6">
                 <label for="year">Año</label>
-                <select name="year" class="form-control" id="year">
-
-                </select>
+                <input type="text" name="year" id="year" value="" class="form-control" disabled>
                 @error('year')
                   <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -210,22 +208,7 @@
         const year = document.getElementById('year');
         const yD = new Date();
         y=yD.getFullYear();
-        // agregamos el selected
-        let op = document.createElement('option');
-        op.textContent='Seleccionar';
-        op.setAttribute("selected", "true");
-        op.setAttribute("hidden", "true");
-        op.setAttribute("disabled", "true");
-        year.appendChild(op)
-
-        // agregamos los siguientes elementos
-        y=y-1;
-        for (let i = 1; i <= 5; i++){
-            let op = document.createElement('option');
-                y=y+1
-                op.textContent=y;
-                year.appendChild(op)
-        }
+        year.value=y;
 
     })
 

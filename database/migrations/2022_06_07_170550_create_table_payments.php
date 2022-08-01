@@ -20,7 +20,7 @@ return new class extends Migration
             $table->boolean('is_valid')->default(false);
 
             // user to payments
-            $table->foreignId('id_user')->references('id')->on('users')->onDelete('no action')->onUpdate('no action');
+            $table->foreignId('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

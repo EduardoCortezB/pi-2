@@ -27,7 +27,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('table_payments', function (Blueprint $table) {
-            $table->foreignId('id_user')->references('id')->on('users')->onDelete('no action')->onUpdate('no action');
+            $table->foreignId('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 };

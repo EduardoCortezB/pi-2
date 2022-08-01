@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('period', function (Blueprint $table) {
-            $table->foreignId('language_id')->nullOnDelete()->nullable()->references('id')->on('languages')->onUpdate('no action')->onDelete('no action')->constrained();
+            $table->foreignId('language_id')->nullOnDelete()->nullable()->references('id')->on('languages')->onUpdate('cascade')->onDelete('cascade')->constrained();
         });
     }
 

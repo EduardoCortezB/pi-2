@@ -18,16 +18,16 @@ return new class extends Migration
             $table->boolean('isCoursing');
 
             // $table->unsignedBigInteger('user_id');
-            $table->foreignId('user_id')->references('id')->on('users')->onUpdate('no action')->onDelete('no action');
+            $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 
             // $table->unsignedBigInteger('level_id');
-            $table->foreignId('level_id')->references('id')->on('table_levels')->onUpdate('no action')->onDelete('no action');
+            $table->foreignId('level_id')->references('id')->on('table_levels')->onUpdate('cascade')->onDelete('cascade');
 
             // $table->unsignedBigInteger('class_time_id');
-            $table->foreignId('class_time_id')->references('id')->on('table_class_times')->onUpdate('no action')->onDelete('no action');
+            $table->foreignId('class_time_id')->references('id')->on('table_class_times')->onUpdate('cascade')->onDelete('cascade');
 
             // $table->unsignedBigInteger('career_id');
-            $table->foreignId('career_id')->references('id')->on('table_careers')->onUpdate('no action')->onDelete('no action');        
+            $table->foreignId('career_id')->references('id')->on('table_careers')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

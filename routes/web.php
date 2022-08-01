@@ -7,7 +7,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\panelController;
 use App\Http\Controllers\careerController;
 use App\Http\Controllers\periodController;
+use App\Http\Controllers\metricsController;
 use App\Http\Controllers\paymentController;
+use App\Http\Controllers\languageController;
 use App\Http\Controllers\class_timeController;
 use App\Http\Controllers\filesAdminController;
 use App\Http\Controllers\RegisterAspirantController;
@@ -61,6 +63,7 @@ Route::group(['middleware'=>'auth.redIfNoAuth'],function(){
 Route::middleware(['auth.redIfNoAuth','validAdmin'])->group(function(){
     Route::resource('/user', UserController::class); // admin
     Route::resource('/level', levelController::class); // admin
+    Route::resource('/language', languageController::class); // admin
     Route::resource('/class_time', class_timeController::class); //admin
     Route::resource('/career', careerController::class); // admin
     Route::resource('/period', periodController::class); // admin
@@ -77,4 +80,6 @@ Route::middleware(['auth.redIfNoAuth','validAdmin'])->group(function(){
     // add new inscription from admin panel
     Route::get('/add_inscription', [RegisterAspirantController::class, 'createInscriptionFromAdmin'])->name('add_inscription');
     Route::post('/add_inscription', [RegisterAspirantController::class, 'storeInscriptionFromAdmin'])->name('add_inscription');
+    //metrics
+    Route::post('/metrics/report_request_1', [metricsController::class, 'getReportAdmin1'])->name('metrics.requestReport'); // request for get report
 });

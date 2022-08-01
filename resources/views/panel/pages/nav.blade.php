@@ -66,6 +66,16 @@
                 </a>
               </li>
         </ul> <!-- End users -->
+        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
+            <li class="nav-item">
+                <a class="nav-link" href="/panel">
+                    <i class="nav-icon fa-solid fa-house-laptop"></i>
+                  <p>
+                    Panel Inicio
+                  </p>
+                </a>
+              </li>
+        </ul> <!-- End users -->
         <ul class="nav nav-pills nav-sidebar flex-column" > <!-- groups -->
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#groups" role="button" aria-expanded="false" aria-controls="groups">
@@ -113,7 +123,7 @@
             <a href="/user" class="nav-link">
                 <i class="nav-icon fa-solid fa-user-check"></i>
                 <p>
-                    Usuarios registrados
+                    Listado
                 </p>
             </a>
           </li>
@@ -121,7 +131,7 @@
             <a href="{{route('user.create')}}" class="nav-link">
                 <i class="nav-icon fa-solid fa-user-plus"></i>
               <p>
-                Agregar preinscrito
+                Agregar
               </p>
             </a>
           </li>
@@ -147,6 +157,14 @@
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+                <a href="/language" class="nav-link">
+                  <i class="nav-icon fa-solid fa-language"></i>
+                  <p>
+                    Idiomas
+                  </p>
+                </a>
+              </li>
             <li class="nav-item">
               <a href="{{ route('class_time.index') }}" class="nav-link">
                   <i class="nav-icon fa-solid fa-business-time"></i>
