@@ -31,5 +31,34 @@ class userRoleSeeder extends Seeder
             'id_rol'  => '1'
         ]);
 
+        DB::table('table_levels')->insert([
+            'name_level'=>'A1',
+            'isActive'=>true
+        ]);
+
+        DB::table('table_class_times')->insert([
+            'start_time'=>'15:00',
+            'end_time'=>'18:00',
+            'daysPerWeek'=>'Lunes, Miércoles, Jueves',
+            'isActive'=>true
+        ]);
+        DB::table('table_careers')->insert([
+            'career_name'=>'Tecnologias de la información - Desarrollo de software multiplataforma',
+            'isActive'=>true
+        ]);
+        DB::table('languages')->insert([
+            'language'=>'Inglés',
+            'isActive'=>true
+        ]);
+        DB::table('period')->insert([
+            'groupName'=>'Grupo A1 Septiembre-Diciembre 2022',
+            'isActive'=>true,
+            'start-date'=>'5-Septiembre',
+            'end-date'=>'5-Diciembre',
+            'year'=>'2022',
+            'id_level'=>1,
+            'id_class_time'=>1,
+            'language_id'=>1,
+        ]);
     }
 }
