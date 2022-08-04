@@ -236,14 +236,14 @@
                 </a>
             </li>
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="#" class="nav-link">
                 <i class="nav-icon fa-solid fa-user"></i>
                 <p>
                 Perfil
                 </p>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </nav>
       @endif
