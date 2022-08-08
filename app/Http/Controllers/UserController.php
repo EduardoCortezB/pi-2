@@ -6,6 +6,7 @@ use App\Models\Rol;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Session\SessionManager;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -48,6 +49,8 @@ class UserController extends Controller
             'password'  => 'required|confirmed',
             'id_rol'  => 'required',
         ]);
+
+        $request->merge(['password'=>Hash::make($request->get('password'))]);
 
         User::create($request->all());
 
