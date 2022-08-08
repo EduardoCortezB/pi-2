@@ -150,12 +150,12 @@
                 margin:       0,
                 filename:     'reporte-periodo-celut-'+document.getElementById('dateReport').textContent+'-'+document.getElementById('period').textContent+'-'+document.getElementById('year').textContent+'-'+milisegundos,
                 image:        { type: 'jpeg', quality: 2 },
-                html2canvas:  { scale: 5, letterRendering:true },
+                html2canvas:  { scale: 2, letterRendering:true },
                 jsPDF:        { unit: 'in', format: 'a3', orientation: 'portrait' }
             };
 
             // New Promise-based usage:
-            html2pdf().set(opt).from($body).save().finally();
+            html2pdf().set(opt).from($body).save().finally(location.reload());
         })
     })
 
