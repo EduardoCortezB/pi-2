@@ -6,7 +6,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Celut<span></span></h3>
+            <h3>CELUT<span></span></h3>
             <p>
                 Pedro Villar 243, Sin Nombre de Col 23, 88680 Reynosa, Tamps.<br>
               <strong>Telefono:</strong><br> 899 920 1216<br>899 920 1666<br>Ext. 22254<br>

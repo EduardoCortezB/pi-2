@@ -159,4 +159,17 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+        <div class="p-3">
+          <h5><b>Detalles de @if ($payment->id_candidat!=null && $payment->id_valid == 1)
+            Inscripción.
+        @else
+            Preinscripción.
+        @endif</b></h5>
+          <p></p>
+        </div>
+      </aside>
+      <!-- /.control-sidebar -->
 @endsection

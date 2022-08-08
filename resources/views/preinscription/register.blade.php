@@ -69,7 +69,7 @@
               @enderror
               </div>
             <div class="d-grid gap-2 pt-4">
-              <button class="btn btn-success" type="submit">Siguiente</button>
+              <button class="btn btn-success" style="background-color; #0000CC; color: white;" type="submit">Siguiente</button>
             </div>
           </div>
         </form>

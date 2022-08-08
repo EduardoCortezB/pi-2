@@ -81,6 +81,9 @@
                         <option value="{{$level->id}}">{{$level->name_level}}</option>
                     @endforeach
                 </select>
+                <div>
+                    <p>Si no conoces tu nivel puedes realizar un examen en el siguiente <a href="https://tewenglish.com/prueba-nivel" target="_blank" rel="noopener noreferrer">enlace</a></p>
+                </div>
                 @error('level_id')
                 <div class="text-danger">{{ $message }}</div>
               @enderror

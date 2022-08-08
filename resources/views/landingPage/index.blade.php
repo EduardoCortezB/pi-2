@@ -9,7 +9,7 @@
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
       <div class="row">
         <div class="col-xl-6">
-          <h1>Centro de Lenguas Ut</h1>
+          <h1>Centro de Lenguas UT</h1>
           <h2>Registrate ahora y disfruta el aprendizaje de un nuevo Idioma.</h2>
           @if (Auth::check())
 

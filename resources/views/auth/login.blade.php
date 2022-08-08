@@ -51,11 +51,7 @@ toastr.options = {
         toastr["success"]("{{Session::get('message')}}")
     </script>
 @endif
-@if(Session::has('message-error'))
-    <script type="text/javascript">
-        toastr["error"]("{{Session::get('message-error')}}")
-    </script>
-@endif
+
 <section class="inner-page">
 <div class="container" data-aos="fade-up">
   <div class="row justify-content-center">
@@ -63,6 +59,11 @@ toastr.options = {
       <form class="g-3" method="post" novalidate autocomplete="off">
         @csrf
         <div class="row p-4" style="border-radius: 9px">
+            @if(Session::has('message-error'))
+                <div class="alert alert-danger" role="alert">
+                    {{Session::get('message-error')}}
+                </div>
+            @endif
           <div class="col-md-12">
             <label for="email">Correo</label>
             <input type="text" name="email" id="email" value="{{old('email')}}" class="form-control @error('email') border-danger @enderror" placeholder="Escribe tu email" required>
@@ -78,7 +79,7 @@ toastr.options = {
             @enderror
           </div>
           <div class="d-grid gap-2 pt-4">
-            <button class="btn" style="background: #009879; color:rgb(255, 255, 255)" type="submit">Acceder</button>
+            <button class="btn" style="background: #0000CC; color:rgb(255, 255, 255)" type="submit">Acceder</button>
           </div>
         </div>
       </form>

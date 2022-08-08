@@ -23,8 +23,10 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-square-fill" viewBox="0 0 16 16">
+                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.93 4.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+              </svg>
+                    </a>
       </li>
     </ul>
   </nav>
@@ -186,6 +188,27 @@
       @endif
       @if (Auth::user()->id_rol == 2)
       <nav class="mt-2">
+
+        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
+            <li class="nav-item">
+                <a class="nav-link" href="/">
+                    <i class="nav-icon fa-solid fa-house"></i>
+                  <p>
+                    Página principal
+                  </p>
+                </a>
+              </li>
+        </ul> <!-- End users -->
+        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
+            <li class="nav-item">
+                <a class="nav-link" href="/panel">
+                    <i class="nav-icon fa-solid fa-house-laptop"></i>
+                  <p>
+                    Panel Inicio
+                  </p>
+                </a>
+              </li>
+        </ul> <!-- End users -->
         <ul class="nav nav-pills nav-sidebar flex-column" > <!-- groups -->
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#groups" role="button" aria-expanded="false" aria-controls="groups">
@@ -198,14 +221,16 @@
             </li>
         </ul> <!-- End groups -->
         <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="groups"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu users -->
-            <li class="nav-item">
-                <a href="{{route('preinscription.create')}}" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
-                  <p>
-                    Iniciar preinscripción
-                  </p>
-                </a>
-              </li>
+            @if (!$data->paymentsPending!=0)
+                <li class="nav-item">
+                    <a href="{{route('preinscription.create')}}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Iniciar preinscripción
+                    </p>
+                    </a>
+                </li>
+            @endif
 
               <li class="nav-item">
                 <a href="{{route('preinscription.index', 'act=pending')}}" class="nav-link">

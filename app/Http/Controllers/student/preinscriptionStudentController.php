@@ -19,21 +19,22 @@ class preinscriptionStudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
+        $data = $this->checkStudent();
         $info=[];
         $info['isCoursing']=($request->get('act')=='pending') ? false : true;
         if ($request->get('act')=='pending') {
             $inscriptions=candidate::where('user_id','=',Auth::user()->id)
             ->where('isCoursing','=',0)->paginate(5);
-            return view('panel.content.preinscriptions.index', compact('inscriptions', 'info'));
+            return view('panel.content.preinscriptions.index', compact('inscriptions', 'info', 'data'));
         }
         if ($request->get('act')=='cursing') {
             $inscriptions=candidate::where('user_id','=',Auth::user()->id)
             ->where('isCoursing','=',1)->paginate(5);
-            return view('panel.content.preinscriptions.index', compact('inscriptions', 'info'));
+            return view('panel.content.preinscriptions.index', compact('inscriptions', 'info', 'data'));
         }
 
         $inscriptions=candidate::where('user_id','=',Auth::user()->id)->paginate(5);
-        return view('panel.content.preinscriptions.index', compact('inscriptions', 'info'));
+        return view('panel.content.preinscriptions.index', compact('inscriptions', 'info', 'data'));
     }
 
     /**
@@ -42,12 +43,14 @@ class preinscriptionStudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
+        $data = $this->checkStudent();
+        if($this->checkStudent()->paymentsPending!=0) return back();
         $careers=DB::table('table_careers')->where('isActive','=',1)->get();
         $languages=DB::table('languages')->where('isActive','=',1)->get();
         $levels=DB::table('table_levels')->where('isActive','=',1)->get();
         $class_times=DB::table('table_class_times')->where('isActive','=',1)->get();
 
-        return view('panel.content.preinscriptions.create', compact('careers','languages','levels','class_times'));
+        return view('panel.content.preinscriptions.create', compact('careers','languages','levels','class_times','data'));
     }
 
     /**
@@ -57,6 +60,7 @@ class preinscriptionStudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, SessionManager $sessionManager){
+        if($this->checkStudent()->paymentsPending!=0) return back();
         if ($request->get('isUttStudent') == '1') {
 
             // estudia en la universidad
@@ -105,6 +109,7 @@ class preinscriptionStudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id){
+        $data = $this->checkStudent();
         $user = Auth::user();
         $inscription=candidate::find($id);
         $payment=Payment::all();
@@ -121,7 +126,7 @@ class preinscriptionStudentController extends Controller
                 'is_valid'=>0,
             ];
         }
-        return view('panel.content.preinscriptions.show',compact('user','inscription','payment'));
+        return view('panel.content.preinscriptions.show',compact('user','inscription','payment','data'));
     }
 
     /**
@@ -134,7 +139,25 @@ class preinscriptionStudentController extends Controller
     {
         //
     }
+    private function checkStudent(){
+        $data=(object)[
+            'paymentsPending'=>0,
+        ];
 
+        $dbdata=DB::select("SELECT COUNT(*) as qty, created_at FROM pi.table_candidats WHERE (isCoursing = 0 AND id_period IS NULL) AND user_id=?",
+            [Auth::user()->id]
+        )[0];
+
+        // Iterate all elements of the request sql for payments dont done
+        for ($i=0; $i < $dbdata->qty; $i++) {
+            // create a variable that has a integer value corresponding with all payments no done
+            if(explode('-',$dbdata->created_at)[0]==date('Y')){
+                $data->paymentsPending = $data->paymentsPending +1;
+            }
+        }
+
+        return $data;
+    }
     /**
      * Update the specified resource in storage.
      *

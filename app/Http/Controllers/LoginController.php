@@ -13,6 +13,7 @@ class LoginController extends Controller
     }
 
     public function store(Request $request, SessionManager $sessionManager){
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -21,7 +22,8 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/');
+            $sessionManager->flash('message', 'Haz accedido correctamente');
+            return redirect('/panel');
         }
         $sessionManager->flash('message-error', 'Credenciales Incorrectas');
         return back();
