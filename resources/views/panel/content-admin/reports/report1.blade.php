@@ -155,7 +155,7 @@
             };
 
             // New Promise-based usage:
-            html2pdf().set(opt).from($body).save().finally(location.reload());
+            html2pdf().set(opt).from($body).save().finally();
         })
     })
 
