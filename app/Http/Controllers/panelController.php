@@ -59,8 +59,8 @@ class panelController extends Controller
             }
         }
 
-        $data->qtyCoursing=DB::select("select COUNT(*) as qty from table_candidats WHERE isCoursing = true")[0];
-        $data->qtyNoCoursing=DB::select("select COUNT(*) as qty from table_candidats WHERE isCoursing = false")[0];
+        $data->qtyCoursing=DB::select("select COUNT(*) as qty from table_candidats WHERE isCoursing = true AND user_id = ?", [Auth::user()->id])[0];
+        $data->qtyNoCoursing=DB::select("select COUNT(*) as qty from table_candidats WHERE isCoursing = false AND user_id = ?", [Auth::user()->id])[0];
 
         return view('panel.content.index', compact('data'));
     }
