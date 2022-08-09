@@ -12,6 +12,7 @@ use App\Http\Controllers\paymentController;
 use App\Http\Controllers\languageController;
 use App\Http\Controllers\class_timeController;
 use App\Http\Controllers\filesAdminController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\RegisterAspirantController;
 use App\Http\Controllers\student\preinscriptionStudentController;
 
@@ -34,6 +35,7 @@ Route::get('/aboutus', function () {
     return view('landingPage.aboutus');
 });
 
+Route::post('/sendMail1',[MailController::class, 'sendMailSystem'])->name('mailFromApp');
 Route::group(['middleware'=>'auth.isAuth'], function(){
     // register user from register UI
     Route::get('/register-candidate', [RegisterAspirantController::class, 'createUser'])->name('register-candidate');

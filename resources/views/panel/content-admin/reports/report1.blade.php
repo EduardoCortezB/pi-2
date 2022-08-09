@@ -20,6 +20,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.2/dist/chart.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <body id="body">
@@ -141,20 +142,18 @@
     document.addEventListener('DOMContentLoaded',()=>{
         const html2pdfBtn = document.getElementById('toPdf');
         const $body =document.getElementById('body')
+
         html2pdfBtn.addEventListener('click',()=>{
             var ahora = new Date();
             var milisegundos = ahora.getMilliseconds();
             document.getElementById('menuBtn').click()
-            var opt = {
-                margin:       0,
-                filename:     'reporte-periodo-celut-'+document.getElementById('dateReport').textContent+'-'+document.getElementById('period').textContent+'-'+document.getElementById('year').textContent+'-'+milisegundos,
-                image:        { type: 'jpeg', quality: 2 },
-                html2canvas:  { scale: 2, letterRendering:true },
-                jsPDF:        { unit: 'in', format: 'a3', orientation: 'portrait' }
-            };
+            var doc = new jsPDF();  //create jsPDF object
 
-            // New Promise-based usage:
-            html2pdf().set(opt).from($body).save().finally(location.reload());
+            // Default export is a4 paper, portrait, using millimeters for units
+            const doc = jspdf
+
+            doc.text("Hello world!", 10, 10);
+            doc.save("a4.pdf");
         })
     })
 
