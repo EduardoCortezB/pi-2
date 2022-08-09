@@ -23,7 +23,7 @@ class MailController extends Controller
             'body'=>$request->get('body'),
         ];
 
-        Mail::to('celutsystem@hotmail.com')->send(new MailForm($details));
+        Mail::to('celutsystem@gmail.com')->queue(new MailForm($details));
         $sessionManager->flash('message', 'Se ha enviado el correo exitosamente');
         return back();
     }
