@@ -60,16 +60,6 @@
       <nav class="">
         <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
             <li class="nav-item">
-                <a class="nav-link" href="/">
-                    <i class="nav-icon fa-solid fa-house"></i>
-                  <p>
-                    Página principal
-                  </p>
-                </a>
-              </li>
-        </ul> <!-- End users -->
-        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
-            <li class="nav-item">
                 <a class="nav-link" href="/panel">
                     <i class="nav-icon fa-solid fa-house-laptop"></i>
                   <p>
@@ -78,9 +68,39 @@
                 </a>
               </li>
         </ul> <!-- End users -->
-        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- groups -->
+        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- alumnos -->
             <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#groups" role="button" aria-expanded="false" aria-controls="groups">
+                <a class="nav-link" data-toggle="collapse" href="#alumnos" role="button" aria-expanded="false" aria-controls="alumnos">
+                    <i class="nav-icon fa-solid fa-user-group"></i>
+                  <p>
+                    Alumnos
+                  </p>
+                  <i class="right fa-solid fa-caret-down"></i>
+                </a>
+            </li>
+        </ul> <!-- End alumnos -->
+        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="alumnos"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu alumnos -->
+            <li class="nav-item">
+                <a href="{{ route('inscriptions', 'f=pending') }}" class="nav-link">
+                  <i class="nav-icon fa-solid fa-sheet-plastic"></i>
+                  <p>
+                      Preiscripciones
+                  </p>
+              </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('inscriptions', 'f=done') }}" class="nav-link">
+                  <i class="nav-icon fa-solid fa-sheet-plastic"></i>
+                  <p>
+                      Inscripciones
+                  </p>
+              </a>
+            </li>
+        </ul> <!-- end submenu alumnos -->
+
+        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- grupos -->
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#Grupos" role="button" aria-expanded="false" aria-controls="Grupos">
                     <i class="nav-icon fa-solid fa-user-group"></i>
                   <p>
                     Grupos
@@ -88,27 +108,63 @@
                   <i class="right fa-solid fa-caret-down"></i>
                 </a>
             </li>
-        </ul> <!-- End groups -->
-        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="groups"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu users -->
-            <li class="nav-item">
-                <a href="{{ route('inscriptions') }}" class="nav-link">
-                  <i class="nav-icon fa-solid fa-sheet-plastic"></i>
-                  <p>
-                      Preiscripciones
-                  </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
+        </ul> <!-- End grupos -->
+        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="Grupos"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu grupos -->
+            <li class="nav-item"> <!-- Listado de grupos -->
                 <a href="{{ route('period.index') }}" class="nav-link">
                     <i class="nav-icon fa-solid fa-calendar-check"></i>
-                <p>
-                    Periodos
-                </p>
-            </a>
-          </li>
-        </ul> <!-- end submenu users -->
+                    <p>
+                        Listado
+                    </p>
+                </a>
+            </li><!-- Listado de grupos -->
+            <li class="nav-item">
+                <a href="{{ route('class_time.index') }}" class="nav-link">
+                    <i class="nav-icon fa-solid fa-business-time"></i>
+                  <p>
+                    Horarios de clases
+                  </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('career.index') }}" class="nav-link">
+                    <i class="nav-icon fa-solid fa-school"></i>
+                  <p>
+                    Carreras UTT
+                  </p>
+                </a>
+            </li>
+        </ul> <!-- end submenu grupos -->
 
+        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- celut uttn -->
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#celut_uttn" role="button" aria-expanded="false" aria-controls="celut_uttn">
+                    <i class="nav-icon fa-solid fa-building-columns"></i>
+                  <p>
+                    Idiomas
+                  </p>
+                  <i class="right fa-solid fa-caret-down"></i>
+                </a>
+              </li>
+        </ul> <!-- End celut uttn -->
+        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="celut_uttn"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu celut uttn -->
+            <li class="nav-item">
+              <a href="/level" class="nav-link">
+                <i class="nav-icon fa-solid fa-align-justify"></i>
+                <p>
+                  Niveles de Idioma
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+                <a href="/language" class="nav-link">
+                  <i class="nav-icon fa-solid fa-language"></i>
+                  <p>
+                    Idiomas
+                  </p>
+                </a>
+              </li>
+        </ul> <!-- end submenu celut uttn -->
         <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
             <li class="nav-item" >
                 <a class="nav-link" data-toggle="collapse" href="#users" role="button" aria-expanded="false" aria-controls="users">
@@ -118,7 +174,7 @@
                   </p>
                   <i class="right fa-solid fa-caret-down"></i>
                 </a>
-              </li>
+            </li>
         </ul> <!-- End users -->
         <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="users"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu users -->
           <li class="nav-item">
@@ -138,53 +194,7 @@
             </a>
           </li>
         </ul> <!-- end submenu users -->
-
-        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- celut uttn -->
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#celut_uttn" role="button" aria-expanded="false" aria-controls="celut_uttn">
-                    <i class="nav-icon fa-solid fa-building-columns"></i>
-                  <p>
-                    Celut Uttn
-                  </p>
-                  <i class="right fa-solid fa-caret-down"></i>
-                </a>
-              </li>
-        </ul> <!-- End celut uttn -->
-        <ul class="nav nav-treeview nav-sidebar flex-column collapse ul-users-menu mb-1" id="celut_uttn"  data-widget="treeview" role="menu" data-accordion="false"> <!-- submenu celut uttn -->
-            <li class="nav-item">
-              <a href="/level" class="nav-link">
-                <i class="nav-icon fa-solid fa-align-justify"></i>
-                <p>
-                  Niveles Idioma
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-                <a href="/language" class="nav-link">
-                  <i class="nav-icon fa-solid fa-language"></i>
-                  <p>
-                    Idiomas
-                  </p>
-                </a>
-              </li>
-            <li class="nav-item">
-              <a href="{{ route('class_time.index') }}" class="nav-link">
-                  <i class="nav-icon fa-solid fa-business-time"></i>
-                <p>
-                  Horarios de clases
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ route('career.index') }}" class="nav-link">
-                  <i class="nav-icon fa-solid fa-school"></i>
-                <p>
-                  Carreras UTT
-                </p>
-              </a>
-            </li>
-          </ul> <!-- end submenu celut uttn -->
-      </nav>
+      </nav> <!-- end administrator panel -->
       @endif
       @if (Auth::user()->id_rol == 2)
       <nav class="mt-2">

@@ -18,9 +18,14 @@ use App\Http\Controllers\filesAdminController;
 
 class RegisterAspirantController extends Controller
 {
-    public function index(){
-        $inscriptions = candidate::all();
-        return view('panel.content-admin.inscription.index', compact('inscriptions'));
+    public function index(Request $request){
+        if($request->get('f')=='done'){
+            $inscriptions = candidate::where('isCoursing','=',true)->get();
+            return view('panel.content-admin.inscription.index', compact('inscriptions'));
+        }else{
+            $inscriptions = candidate::where('isCoursing','=',false)->get();
+            return view('panel.content-admin.inscription.index', compact('inscriptions'));
+        }
     }
     /**
      * Show the form for creating a new resource.
