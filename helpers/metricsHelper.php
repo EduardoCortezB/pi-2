@@ -37,24 +37,13 @@ class metricsHelper {
         $preinscription = DB::table('table_candidats')
         ->select('*')
         ->join('users', 'table_candidats.user_id', '=', 'users.id')
-        ->leftJoin('table_levels', 'table_candidats.level_id', '=', 'table_levels.id')
-        ->leftJoin('languages', 'table_candidats.language_id', '=', 'languages.id')
-        ->leftJoin('table_class_times', 'table_candidats.class_time_id', '=', 'table_class_times.id')
-        ->leftJoin('table_careers', 'table_candidats.career_id', '=', 'table_careers.id')
         ->join('period', 'table_candidats.id_period', 'period.id')
         ->where(function ($query) {
             $query->where('isCoursing','=', true);
         })
         ->get();
 
-        $studentsCoursing=0;
-        dd($preinscription);
-        for ($i=0; $i < $preinscription->count(); $i++) {
-            if ($preinscription[$i]->period->isActive) {
-                $studentsCoursing++;
-            }
-        }
-        $dataResponse['data']['metrics']['studentsCoursing']=$studentsCoursing;
+        $dataResponse['data']['metrics']['studentsCoursing']=COUNT($preinscription);
 
         // get periods actives of current year
         if ($this->request != null) {
