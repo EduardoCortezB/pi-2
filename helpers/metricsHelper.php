@@ -1,9 +1,10 @@
 <?php
 namespace Helpers;
 
-use App\Models\candidate;
-use App\Models\Language;
 use App\Models\period;
+use App\Models\Language;
+use App\Models\candidate;
+use Illuminate\Support\Facades\DB;
 
 class metricsHelper {
     private $id;
@@ -33,8 +34,19 @@ class metricsHelper {
         $dataResponse['data']['metrics']['languages']=$language->count();
 
         // students are coursing
-        $preinscription=candidate::all();
-        $preinscription = $preinscription->where('isCoursing','=',true);
+        $preinscription = DB::table('table_candidats')
+        ->select('*')
+        ->join('users', 'table_candidats.user_id', '=', 'users.id')
+        ->leftJoin('table_levels', 'table_candidats.level_id', '=', 'table_levels.id')
+        ->leftJoin('languages', 'table_candidats.language_id', '=', 'languages.id')
+        ->leftJoin('table_class_times', 'table_candidats.class_time_id', '=', 'table_class_times.id')
+        ->leftJoin('table_careers', 'table_candidats.career_id', '=', 'table_careers.id')
+        ->join('period', 'table_candidats.id_period', 'period.id')
+        ->where(function ($query) {
+            $query->where('isCoursing','=', true);
+        })
+        ->get();
+
         $studentsCoursing=0;
         dd($preinscription);
         for ($i=0; $i < $preinscription->count(); $i++) {
