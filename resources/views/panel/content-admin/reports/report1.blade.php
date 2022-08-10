@@ -71,11 +71,11 @@
                   </tr>
               </tbody>
         </table>
-        <h3 class="display-2" style="font-size: 25px;"><img src="https://cdn-icons.flaticon.com/png/512/2152/premium/2152656.png?token=exp=1660151018~hmac=a95643e9b75072d839ee31ca44f04539" width="20px" alt=""> Estádisticas</h3>
+        <h3 class="display-2" style="font-size: 25px;"> Estádisticas</h3>
 
         <div class="row mt-3">
             <div class="col-md-12">
-                <h3 class="display-2" style="font-size: 20px;"><img src="https://cdn-icons.flaticon.com/png/512/2152/premium/2152656.png?token=exp=1660151018~hmac=a95643e9b75072d839ee31ca44f04539" width="15px" alt=""> Gráfico comparación niveles</h3>
+                <h3 class="display-2" style="font-size: 20px;"> Gráfico comparación niveles</h3>
                 <div class="card">
                     <div class="card-body">
                         <div style="display: flex;justify-content: center;">
