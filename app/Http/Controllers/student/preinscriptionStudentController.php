@@ -103,7 +103,7 @@ class preinscriptionStudentController extends Controller
         candidate::create($data);
 
         $sessionManager->flash('message', 'Se ha creado la preinscripción correctamente.');
-        return redirect()->route('preinscription.index');
+        return redirect()->route('preinscription.index', 'act=pending');
     }
 
     /**
