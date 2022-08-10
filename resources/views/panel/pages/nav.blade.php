@@ -263,22 +263,13 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{route('preinscription.index')}}" class="nav-link">
+                <a href="{{route('preinscription.index', 'act=history')}}" class="nav-link">
                   <i class="nav-icon fa-solid fa-clock-rotate-left"></i>
                   <p>
                     Historial
                   </p>
                 </a>
             </li>
-
-            {{-- <li class="nav-item">
-                <a href="#" class="nav-link">
-                <i class="nav-icon fa-solid fa-user"></i>
-                <p>
-                Perfil
-                </p>
-            </a>
-          </li> --}}
         </ul>
       </nav>
       @endif

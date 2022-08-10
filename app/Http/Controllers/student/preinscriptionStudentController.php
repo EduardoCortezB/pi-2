@@ -32,6 +32,11 @@ class preinscriptionStudentController extends Controller
             ->where('isCoursing','=',1)->paginate(5);
             return view('panel.content.preinscriptions.index', compact('inscriptions', 'info', 'data'));
         }
+        if ($request->get('act')=='history') {
+            $inscriptions=candidate::where('user_id','=',Auth::user()->id)
+            ->where('isCoursing','=',1)->paginate(5);
+            return view('panel.content.preinscriptions.index', compact('inscriptions', 'info', 'data'));
+        }
 
         $inscriptions=candidate::where('user_id','=',Auth::user()->id)->paginate(5);
         return view('panel.content.preinscriptions.index', compact('inscriptions', 'info', 'data'));
