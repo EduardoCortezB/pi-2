@@ -65,7 +65,7 @@ toastr.options = {
                 <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nombre del rol</th>
+                      <th scope="col">Nivel</th>
                       <th scope="col">Estado</th>
                       <th scope="col">Acciones</th>
                     </tr>

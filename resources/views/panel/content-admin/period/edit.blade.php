@@ -8,13 +8,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Editar Periodo</h1>
+            <h1 class="m-0">Editar Grupo</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/panel">Inicio</a></li>
-              <li class="breadcrumb-item"><a href="{{route('period.index')}}">Periodos</a></li>
-              <li class="breadcrumb-item active">Editar Periodo</li>
+              <li class="breadcrumb-item"><a href="{{route('period.index')}}">Listado de grupos</a></li>
+              <li class="breadcrumb-item active">Editar Grupo</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -243,21 +243,11 @@
         const yearIn = document.getElementById('yearDate')
 
         // agregamos los siguientes elementos
-        y=y-1;
-        for (let i = 1; i <= 5; i++){
-            y=y+1
-            if (yearIn.value==y) {
-                let op = document.createElement('option');
-                op.textContent=y;
-                op.selected='true';
-                year.appendChild(op)
-            }else{
-                let op = document.createElement('option');
-                op.textContent=y;
-                year.appendChild(op)
-            }
-        }
 
+        let op = document.createElement('option');
+        op.textContent=y;
+        op.selected='true';
+        year.appendChild(op)
     })
 
     function populateDaysStart(month) {

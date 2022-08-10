@@ -41,12 +41,12 @@ toastr.options = {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Periodos</h1>
+            <h1 class="m-0">Grupos</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/panel">Inicio</a></li>
-              <li class="breadcrumb-item active">Periodo</li>
+              <li class="breadcrumb-item active">Grupos</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -58,7 +58,7 @@ toastr.options = {
     <div class="content">
       <div class="container-fluid">
         <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="{{route('period.create')}}" class="btn btn-secondary m-1">Agregar nuevo periodo</a>
+            <a href="{{route('period.create')}}" class="btn btn-secondary m-1">Agregar nuevo grupo</a>
           </div>
         <div class="table-responsive">
             <table class="table">

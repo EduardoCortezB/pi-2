@@ -8,13 +8,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Agregar Periodo</h1>
+            <h1 class="m-0">Agregar Grupo</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/panel">Inicio</a></li>
-              <li class="breadcrumb-item"><a href="{{route('period.index')}}">Periodos</a></li>
-              <li class="breadcrumb-item active">Agregar Periodo</li>
+              <li class="breadcrumb-item"><a href="{{route('period.index')}}">Grupos</a></li>
+              <li class="breadcrumb-item active">Agregar Grupo</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -29,7 +29,7 @@
             @csrf
           <div class="row">
             <div class="col-md-6">
-              <label for="validationCustom01">Nombre del periodo</label>
+              <label for="validationCustom01">Nombre del grupo</label>
               <input type="text" name="groupName" value="{{old('groupName')}}" class="form-control @error('groupName') border-danger @enderror" id="validationCustom01" placeholder="Nombre" required>
               @error('groupName')
                 <div class="text-danger">{{ $message }}</div>
@@ -45,7 +45,7 @@
             <div class="col-md-12 mt-3 mb-3">
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="validationCustom01">Fecha de inicio del periodo</label>
+                        <label for="validationCustom01">Fecha de inicio del grupo</label>
                         <div class="row">
                             <div class="col-6">
                                 <label for="start_month">Mes:</label>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="col-md-6" >
-                        <label for="validationCustom01">Fecha de finalización del periodo</label>
+                        <label for="validationCustom01">Fecha de finalización del grupo</label>
                         <div class="row">
                             <div class="col-6">
                                 <label for="end_month">Mes:</label>

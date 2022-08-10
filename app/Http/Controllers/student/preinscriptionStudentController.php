@@ -35,7 +35,11 @@ class preinscriptionStudentController extends Controller
         if ($request->get('act')=='history') {
             $inscriptions=candidate::where('user_id','=',Auth::user()->id)->get();
             $inscriptions = $inscriptions->reject(function($flight){
-                return $flight->period->isActive == true;
+                try {
+                    return $flight->id_period==null || $flight->period->isActive==1;
+                } catch (\Throwable $th) {
+                    return false;
+                }
             });
             return view('panel.content.preinscriptions.index', compact('inscriptions', 'info', 'data'));
         }
