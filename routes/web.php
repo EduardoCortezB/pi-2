@@ -84,4 +84,5 @@ Route::middleware(['auth.redIfNoAuth','validAdmin'])->group(function(){
     Route::post('/add_inscription', [RegisterAspirantController::class, 'storeInscriptionFromAdmin'])->name('add_inscription');
     //metrics
     Route::post('/metrics/report_request_1', [metricsController::class, 'getReportAdmin1'])->name('metrics.requestReport'); // request for get report
+    Route::get('/metrics/download_report_1', [metricsController::class, 'downloadReport'])->name('metrics.download_re_1'); // request for get report
 });

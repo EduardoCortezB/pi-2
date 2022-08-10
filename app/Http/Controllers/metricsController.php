@@ -7,6 +7,7 @@ use App\Models\Level;
 use App\Models\candidate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 use Illuminate\Session\SessionManager;
 
 class metricsController extends Controller
@@ -42,10 +43,7 @@ class metricsController extends Controller
         return $p1;
     }
 
-
-    // Get report
-    public function getReportAdmin1(Request $request, SessionManager $sessionManager){
-
+    private function getMetrics($request){
         $startM = $request->get('startMont');
         $endM = $request->get('endMont');
         $this->metrics['data']['period']['startMonth']=$startM;
@@ -121,10 +119,28 @@ class metricsController extends Controller
         $this->metrics['data']['monetary']['noStudents']=$this->metrics['data']['metrics']['noStudents']*2400;
         $this->metrics['data']['monetary']['students']=$this->metrics['data']['metrics']['students']*1800;
         $this->metrics['data']['monetary']['total']=$this->metrics['data']['monetary']['noStudents']+$this->metrics['data']['monetary']['students'];
+    }
+
+
+    // Get report
+    public function getReportAdmin1(Request $request, SessionManager $sessionManager){
+
+        $this->getMetrics($request);
 
         return view('panel.content-admin.reports.report1')->with([
             'metrics'=>$this->metrics
         ]);
+    }
+
+    public function downloadReport(Request $request){
+        $pdf = App::make('dompdf.wrapper');
+
+        $this->getMetrics($request);
+
+        $pdf->loadView('panel.content-admin.reports.report1', ['metrics'=>$this->metrics]);
+
+        return $pdf->download('archivo.pdf');
+
     }
 }
 

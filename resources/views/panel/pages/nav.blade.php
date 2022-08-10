@@ -198,17 +198,6 @@
       @endif
       @if (Auth::user()->id_rol == 2)
       <nav class="mt-2">
-
-        <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
-            <li class="nav-item">
-                <a class="nav-link" href="/">
-                    <i class="nav-icon fa-solid fa-house"></i>
-                  <p>
-                    Página principal
-                  </p>
-                </a>
-              </li>
-        </ul> <!-- End users -->
         <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
             <li class="nav-item">
                 <a class="nav-link" href="/panel">
@@ -286,6 +275,16 @@
                     </a>
                 </li>
             </ul>
+            <ul class="nav nav-pills nav-sidebar flex-column" > <!-- users -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        <i class="nav-icon fa-solid fa-house"></i>
+                      <p>
+                        Página principal
+                      </p>
+                    </a>
+                  </li>
+            </ul> <!-- End users -->
           </nav>
       </div>
     </div>

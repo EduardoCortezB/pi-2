@@ -229,7 +229,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
               <i><img src="https://cdn-icons-png.flaticon.com/512/940/940207.png" width="40px" alt="USA FLAG"></i>
               <h4><a href="#">Inglés</a></h4>
-              <p>Tenemos este idioma disponible en nuestro centro de lenguas, en los niveles A1.1, A1.2, B1, B2</p>
+              <p>Tenemos este idioma disponible en nuestro centro de lenguas, en los niveles A1.1, A1.2, A2, B1, B2</p>
             </div>
           </div>
         </div>

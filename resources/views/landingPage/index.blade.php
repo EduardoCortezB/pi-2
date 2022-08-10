@@ -176,7 +176,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
               <i><img src="https://cdn-icons-png.flaticon.com/512/940/940207.png" width="40px" alt="USA FLAG"></i>
               <h4><a href="#">Inglés</a></h4>
-              <p>Tenemos este idioma disponible en nuestro centro de lenguas, en los niveles A1.1, A1.2, B1, B2</p>
+              <p>Tenemos este idioma disponible en nuestro centro de lenguas, en los niveles A1.1, A1.2, A2, B1, B2</p>
             </div>
           </div>
         </div>
@@ -294,7 +294,7 @@
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="col-lg-6">
+          <div class="col-lg-12">
 
             <div class="row">
               <div class="col-md-12">
@@ -314,7 +314,7 @@
               <div class="col-md-6">
                 <div class="info-box mt-4">
                   <i class="bx bx-phone-call"></i>
-                  <h3>Whatsapp ó Llamada</h3>
+                  <h3>Llamada</h3>
                   <p>899 920 1216<br>899 920 1666<br>Ext. 22254</p>
                 </div>
               </div>
@@ -322,7 +322,7 @@
 
           </div>
 
-          <div class="col-lg-6">
+          {{-- <div class="col-lg-6">
             @if(Session::has('message'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <p>{{Session::get('message')}}</p>
@@ -359,7 +359,7 @@
               </div>
               <div class="text-center"><button type="submit">Enviar mensaje</button></div>
             </form>
-          </div>
+          </div> --}}
 
         </div>
 
