@@ -38,7 +38,11 @@ class preinscriptionStudentController extends Controller
             return view('panel.content.preinscriptions.index', compact('inscriptions', 'info', 'data'));
         }
 
-        $inscriptions=candidate::where('user_id','=',Auth::user()->id)->paginate(5);
+        $inscriptions=candidate::where('user_id','=',Auth::user()->id);
+        $inscriptions = $inscriptions->reject(function($flight){
+            return $flight->period->isActive == true;
+        });
+        dd($inscriptions);
         return view('panel.content.preinscriptions.index', compact('inscriptions', 'info', 'data'));
     }
 

@@ -36,6 +36,7 @@ class metricsHelper {
         $preinscription=candidate::all();
         $preinscription = $preinscription->where('isCoursing','=',true);
         $studentsCoursing=0;
+        dd($preinscription);
         for ($i=0; $i < $preinscription->count(); $i++) {
             if ($preinscription[$i]->period->isActive) {
                 $studentsCoursing++;
