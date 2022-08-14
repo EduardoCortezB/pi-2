@@ -22,7 +22,7 @@ class MailController extends Controller
             'title'=>$request->get('title'),
             'body'=>$request->get('body'),
         ];
-        \Mail::send('mail', array(
+        \Mail::send('mail.contactFormAdmin', array(
             'name' => $request->get('name'),
             'email' => $request->get('from'),
             'subject' => $request->get('title'),
