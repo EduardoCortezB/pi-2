@@ -22,9 +22,18 @@ class MailController extends Controller
             'title'=>$request->get('title'),
             'body'=>$request->get('body'),
         ];
+        \Mail::send('mail', array(
+            'name' => $request->get('name'),
+            'email' => $request->get('from'),
+            'subject' => $request->get('subject'),
+            'user_query' => $request->get('body'),
+        ), function($message) use ($request){
+            $message->from($request->email);
+            $message->to('celutsystem@gmail.com', 'Admin')->subject($request->get('subject'));
+        });
 
-        Mail::to('celutsystem@gmail.com')->queue(new MailForm($details));
-        $sessionManager->flash('message', 'Se ha enviado el correo exitosamente');
+        // Mail::to('celutsystem@gmail.com')->queue(new MailForm($details));
+        // $sessionManager->flash('message', 'Se ha enviado el correo exitosamente');
         return back();
     }
 }
