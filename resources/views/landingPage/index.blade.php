@@ -294,7 +294,7 @@
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="col-lg-12">
+          <div class="col-lg-6">
 
             <div class="row">
               <div class="col-md-12">
@@ -322,7 +322,7 @@
 
           </div>
 
-          {{-- <div class="col-lg-6">
+          <div class="col-lg-6">
             @if(Session::has('message'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <p>{{Session::get('message')}}</p>
@@ -359,7 +359,7 @@
               </div>
               <div class="text-center"><button type="submit">Enviar mensaje</button></div>
             </form>
-          </div> --}}
+          </div>
 
         </div>
 
