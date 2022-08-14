@@ -25,11 +25,11 @@ class MailController extends Controller
         \Mail::send('mail', array(
             'name' => $request->get('name'),
             'email' => $request->get('from'),
-            'subject' => $request->get('subject'),
+            'subject' => $request->get('title'),
             'user_query' => $request->get('body'),
         ), function($message) use ($request){
             $message->from($request->get('from'));
-            $message->to('celutsystem@gmail.com', 'Admin')->subject($request->get('subject'));
+            $message->to('celutsystem@gmail.com', 'Admin')->subject($request->get('title'));
         });
 
         // Mail::to('celutsystem@gmail.com')->queue(new MailForm($details));
