@@ -105,9 +105,6 @@ toastr.options = {
                     @endforeach
                   </tbody>
             </table>
-            <div class="pagination justify-content-end">
-                {!! $classes->links() !!}
-            </div>
           </div>
 
         <!-- /.row -->

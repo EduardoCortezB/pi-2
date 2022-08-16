@@ -16,7 +16,7 @@ class careerController extends Controller
     public function index()
     {
         //
-        $careers=Career::paginate(5);
+        $careers=Career::all();
         return view('panel.content-admin.career.index', compact('careers'));
     }
 

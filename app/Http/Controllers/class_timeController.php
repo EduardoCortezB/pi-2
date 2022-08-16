@@ -17,7 +17,7 @@ class class_timeController extends Controller
      */
     public function index()
     {
-        $classes=Class_time::paginate(10);
+        $classes=Class_time::all();
 
         // dd(DateCodification::getDaysInArray('4,5'));
         return view('panel.content-admin.class_time.index', compact('classes'));

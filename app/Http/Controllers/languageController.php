@@ -15,7 +15,7 @@ class languageController extends Controller
      */
     public function index()
     {
-        $levels=Language::paginate(5);
+        $levels=Language::all();
         return view('panel.content-admin.language.index', compact('levels'));
     }
 

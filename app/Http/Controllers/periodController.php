@@ -21,7 +21,7 @@ class periodController extends Controller
     public function index()
     {
         //
-        $periods=period::paginate(15);
+        $periods=period::all();
         return view('panel.content-admin.period.index', compact('periods'));
     }
 

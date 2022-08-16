@@ -102,9 +102,6 @@ toastr.options = {
                     @endforeach
                   </tbody>
             </table>
-            <div class="pagination justify-content-end">
-                {!! $periods->links() !!}
-            </div>
           </div>
 
         <!-- /.row -->
