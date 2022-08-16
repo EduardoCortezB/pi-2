@@ -62,6 +62,7 @@ Route::group(['middleware'=>'auth.redIfNoAuth'],function(){
     // Route::get('/inscriptions/{id}', [RegisterAspirantController::class, 'destroy'])->name('inscriptions.validated');
 
 });
+Route::get('/pdf/instruction/{path}', [filesAdminController::class, 'viewInstruction']);
 Route::middleware(['auth.redIfNoAuth','validAdmin'])->group(function(){
     Route::resource('/user', UserController::class); // admin
     Route::resource('/level', levelController::class); // admin

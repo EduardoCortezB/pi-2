@@ -1,4 +1,5 @@
 *
 !pdfPayments/
+!pdfPayments/doPaymentCelut.pdf
 !public/
 !.gitignore
