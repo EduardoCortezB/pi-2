@@ -83,6 +83,7 @@ Route::middleware(['auth.redIfNoAuth','validAdmin'])->group(function(){
     // add new inscription from admin panel
     Route::get('/add_inscription', [RegisterAspirantController::class, 'createInscriptionFromAdmin'])->name('add_inscription');
     Route::post('/add_inscription', [RegisterAspirantController::class, 'storeInscriptionFromAdmin'])->name('add_inscription');
+    Route::delete('/del_inscription/{id}', [RegisterAspirantController::class, 'destroy'])->name('del_inscription');
     //metrics
     Route::post('/metrics/report_request_1', [metricsController::class, 'getReportAdmin1'])->name('metrics.requestReport'); // request for get report
     Route::get('/metrics/download_report_1', [metricsController::class, 'downloadReport'])->name('metrics.download_re_1'); // request for get report

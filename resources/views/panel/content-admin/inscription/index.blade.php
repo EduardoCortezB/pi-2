@@ -110,11 +110,11 @@ toastr.options = {
                         </td>
                         <td>
                             <a href="inscriptions/details/{{$inscription->id}}" class="btn btn-info p-1">Detalles</a>
-                            {{-- <form action="{{route('level.destroy', $inscription->id)}}" method="POST" style="display: inline">
+                            <form action="{{route('del_inscription', $inscription->id)}}" method="POST" style="display: inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form> --}}
+                                <button type="submit" class="btn btn-danger p-1">Eliminar</button>
+                            </form>
                         </td>
                       </tr>
                     @endforeach

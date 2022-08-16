@@ -152,4 +152,10 @@ class RegisterAspirantController extends Controller
         $sessionManager->flash('message', 'Se ha creado exitosamente el registro.');
         return redirect()->route('inscriptions');
     }
+
+    public function destroy($id,SessionManager $sessionManager){
+        candidate::find($id)->delete();
+        $sessionManager->flash('message', 'Se ha eliminado el registro.');
+        return redirect()->route('inscriptions');
+    }
 }
